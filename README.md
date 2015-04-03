@@ -1,9 +1,10 @@
 # Argonaut
 
+![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)
+
 A collection of helpers for the [Argo](https://github.com/thoughtbot/Argo) JSON parser.
 
 > The Argonauts were a band of heroes in Greek mythology. Their name comes from their ship, the Argo, named after its builder, Argus.
-> - <http://en.wikipedia.org/wiki/Argonauts>
 
 # Usage
 
