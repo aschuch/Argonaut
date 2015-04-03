@@ -14,25 +14,19 @@ import CoreLocation
 
 class User: NSObject {
     let name: String
-    let profilePictureURL: NSURL
-    let location: CLLocation
     
-    required init(name: String, profilePictureURL: NSURL, location: CLLocation) {
+    required init(name: String) {
         self.name = name
-        self.profilePictureURL = profilePictureURL
-        self.location = location
     }
 }
 
 extension User: JSONDecodable {
-    class func create(name: String)(profilePictureURL: NSURL)(location: CLLocation) -> User {
-        return self(name: name, profilePictureURL: profilePictureURL, location: location)
+    class func create(name: String) -> User {
+        return self(name: name)
     }
     
     class func decode(j: JSONValue) -> User? {
         return User.create
             <^> j <| "name"
-            <*> j <| "profile_picture"
-            <*> j <| "location"
     }
 }

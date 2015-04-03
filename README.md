@@ -2,7 +2,7 @@
 
 ![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)
 
-A collection of helpers for the [Argo](https://github.com/thoughtbot/Argo) JSON parser.
+A collection of (reactive) JSON parsing helpers for the [Argo](https://github.com/thoughtbot/Argo) JSON parser.
 
 > The Argonauts were a band of heroes in Greek mythology. Their name comes from their ship, the Argo, named after its builder, Argus.
 
@@ -57,15 +57,6 @@ jsonSignal.mapToObjectArray(Task.self).subscribeNext({ [weak self] tasks in
     println(error)
 })
 ```
-
-## `JSONDecodeable` Extensions
-
-Argonaut also aims to collect helpful extensions for common objets to be directly used with Argo/Runes. Currently only a handful extensions are supported, but pull requests are more than welcome.
-
-| Class											| Description 						|
-|----											|----								|
-| [CLLocation](Argonaut/CLLocation+Argo.swift) 	| Converts a JSON dictionary `{"lat": 48.2, "lon": 16.36}` to a `CLLocation`. |
-| [NSURL](Argonaut/NSURL+Argo.swift) 			| Converts a JSON string to `NSURL` |
 
 ## Installation
 
