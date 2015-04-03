@@ -58,13 +58,14 @@ jsonSignal.mapToObjectArray(Task.self).subscribeNext({ [weak self] tasks in
 })
 ```
 
-## JSONDecodeable Extensions
+## `JSONDecodeable` Extensions
 
 Argonaut also aims to collect helpful extensions for common objets to be directly used with Argo/Runes. Currently only a handful extensions are supported, but pull requests are more than welcome.
 
-* [NSURL](Argonaut/NSURL+Argo.swift): Converts a JSON string to `NSURL`.
-* [CLLocation](Argonaut/CLLocation+Argo.swift): Converts a JSON dictionary `{"lat": 48.2, "lon": 16.36}` to a `CLLocation`.
-
+| Class											| Description 						|
+|----											|----								|
+| [CLLocation](Argonaut/CLLocation+Argo.swift) 	| Converts a JSON dictionary `{"lat": 48.2, "lon": 16.36}` to a `CLLocation`. |
+| [NSURL](Argonaut/NSURL+Argo.swift) 			| Converts a JSON string to `NSURL` |
 
 ## Installation
 
