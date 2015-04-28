@@ -29,6 +29,26 @@ class ReactiveJSONMappingTests: XCTestCase {
         }
     }()
     
+    lazy var userJSONSignalProducer: SignalProducer<AnyObject, NSError> = {
+        return SignalProducer { sink, disposable in
+            sendNext(sink, self.mockData.userJSON)
+        }
+    }()
+    
+    lazy var tasksJSONSignalProducer: SignalProducer<AnyObject, NSError> = {
+        return SignalProducer { sink, disposable in
+            sendNext(sink, self.mockData.tasksJSON)
+        }
+    }()
+    
+    
+    lazy var invalidTasksJSONSignalProducer: SignalProducer<AnyObject, NSError> = {
+        return SignalProducer { sink, disposable in
+            sendNext(sink, self.mockData.invalidTasksJSONData)
+        }
+    }()
+    
+    
     func testMapToObject() {
         var user: User?
         userJSONSignal.mapToType(User.self).subscribeNext { user = $0 as? User }
@@ -52,6 +72,29 @@ class ReactiveJSONMappingTests: XCTestCase {
         var tasks: [Task]?
         signal.mapToTypeArray(Task.self).subscribeNext { tasks = $0 as? [Task] }
         XCTAssertNil(tasks, "mapToObject returned non-nil tasks")
+    }
+    
+    func testRAC3() {
+        var user: User?
+        userJSONSignalProducer
+            |> mapToType(User.self)
+            |> start(next: { user = $0 })
+        
+        XCTAssertNotNil(user, "mapToType should not return nil user")
+        
+        var tasks: [Task]?
+        tasksJSONSignalProducer
+            |> mapToType(Task.self)
+            |> start(next: { tasks = $0 })
+        
+        XCTAssertNotNil(tasks, "mapToType should not return nil tasks")
+        
+        var invalidTasks: [Task]? = nil
+        invalidTasksJSONSignalProducer
+            |> mapToType(Task.self)
+            |> start(next: { invalidTasks = $0 })
+        
+        XCTAssert(invalidTasks == nil, "mapToType should return nil tasks for invalid JSON")
     }
     
 }

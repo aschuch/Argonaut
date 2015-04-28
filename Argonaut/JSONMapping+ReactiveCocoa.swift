@@ -80,8 +80,8 @@ extension RACSignal {
 
 
 // MARK: ReactiveCocoa >= 3.x
-
-public func mapToType<T: Decodable, E where T == T.DecodedType>(classType: T.Type)(signal: Signal<AnyObject, NSError>) -> Signal<T, NSError> {
+    
+public func mapToType<T: Decodable where T == T.DecodedType>(classType: T.Type)(signal: Signal<AnyObject, NSError>) -> Signal<T, NSError> {
     return signal |> tryMap { object in
         let decoded: Decoded<T> = decode(object)
         
@@ -96,7 +96,7 @@ public func mapToType<T: Decodable, E where T == T.DecodedType>(classType: T.Typ
     }
 }
 
-public func mapToType<T: Decodable, E where T == T.DecodedType>(classType: T.Type)(signal: Signal<AnyObject, NSError>) -> Signal<[T], NSError> {
+public func mapToType<T: Decodable where T == T.DecodedType>(classType: T.Type)(signal: Signal<AnyObject, NSError>) -> Signal<[T], NSError> {
     return signal |> tryMap { object in
         let decoded: Decoded<[T]> = decode(object)
         
