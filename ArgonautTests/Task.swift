@@ -19,12 +19,12 @@ class Task: NSObject {
     }
 }
 
-extension Task: JSONDecodable {
+extension Task: Decodable {
     class func create(name: String) -> Task {
         return self(name: name)
     }
     
-    class func decode(j: JSONValue) -> Task? {
+    class func decode(j: JSON) -> Decoded<Task> {
         return Task.create
             <^> j <| "name"
     }

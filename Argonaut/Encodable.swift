@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import Argo
 
 /// A simple protocol to encode models back to JSON
-public protocol JSONEncodable {
-    func toJSON() -> JSONObject
+public protocol Encodable {
+    func encode() -> AnyObject
 }

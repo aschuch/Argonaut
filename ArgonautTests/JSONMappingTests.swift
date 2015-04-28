@@ -8,6 +8,7 @@
 
 import UIKit
 import XCTest
+import Argo
 import Argonaut
 
 class JSONMappingTests: XCTestCase {
@@ -20,71 +21,51 @@ class JSONMappingTests: XCTestCase {
     func testMapValidJSON() {
         XCTAssertNotNil(mockData.userJSONData, "user JSON data is nil")
 
-        // NSData
-        let user: User? = mapJSON(mockData.userJSONData)
-        XCTAssertNotNil(user, "mapJSON returned nil user")
-        
-        // JSON object
-        let user2: User? = mapJSON(mockData.userJSON)
-        XCTAssertNotNil(user2, "mapJSON returned nil user")
+        let user: User? = decodeData(mockData.userJSONData)
+        let userDecoded: Decoded<User>? = decodeData(mockData.userJSONData)
+        XCTAssertNotNil(user, "decodeData should return valid user")
+
+        var u = userDecoded?.value
+        XCTAssertNotNil(u, "decodeData decoded should return valid user")
     }
     
     func testMapArrayValidJSON() {
         XCTAssertNotNil(mockData.tasksJSONData, "tasks JSON data is nil")
 
-        // NSData
-        let tasks: [Task]? = mapJSONArray(mockData.tasksJSONData)
-        XCTAssertNotNil(tasks, "mapJSON returned nil tasks")
-        XCTAssertTrue(count(tasks!) == 3, "mapJSON returned wrong number of tasks")
+        let tasks: [Task]? = decodeData(mockData.tasksJSONData)
+        let tasksDecoded: Decoded<[Task]>? = decodeData(mockData.tasksJSONData)
+
+        XCTAssertNotNil(tasks, "decodeData should return valid tasks")
+        XCTAssertTrue(count(tasks!) == 3, "decodeData returned wrong number of tasks")
         
-        // JSON Object
-        let tasks2: [Task]? = mapJSONArray(mockData.tasksJSON)
-        XCTAssertNotNil(tasks2, "mapJSON returned nil tasks")
-        XCTAssertTrue(count(tasks2!) == 3, "mapJSON returned wrong number of tasks")
+        let t = tasksDecoded?.value
+        XCTAssertNotNil(t, "decodeData decoded should return valid tasks")
+        XCTAssertTrue(count(t!) == 3, "decodeData decoded returned wrong number of tasks")
     }
 
     func testMapNilJSON() {
-        // NSData
         let data: NSData? = nil
-        let user: User? = mapJSON(data)
-        XCTAssertNil(user, "mapJSON returned non-nil user")
+        let tasks: [Task]? = decodeData(data)
+        let tasksDecoded: Decoded<[Task]>? = decodeData(data)
+        let user: User? = decodeData(data)
+        let userDecoded: Decoded<User>? = decodeData(data)
         
-        // JSON Object
-        let object: JSONObject? = nil
-        let user2: User? = mapJSON(object)
-        XCTAssertNil(user2, "mapJSON returned non-nil user")
-    }
-
-    func testMapArrayNilJSON() {
-        // NSData
-        let data: NSData? = nil
-        let tasks: [Task]? = mapJSONArray(data)
-        XCTAssertNil(tasks, "mapJSON returned non-nil tasks")
-        
-        // JSON Object
-        let array: JSONArray? = nil
-        let tasks2: [Task]? = mapJSONArray(array)
-        XCTAssertNil(tasks2, "mapJSON returned non-nil tasks")
+        XCTAssert(tasks == nil, "decodeData should return nil tasks")
+        XCTAssert(tasksDecoded == nil, "decodeData should return nil tasks")
+        XCTAssert(user == nil, "decodeData should return nil user")
+        XCTAssert(userDecoded == nil, "decodeData should return nil user")
     }
 
     func testMapInvalidJSON() {
-        // NSData
-        let user: User? = mapJSON(mockData.invalidUserJSONData)
-        XCTAssertNil(user, "mapJSON returned non-nil user")
-        
-        // JSON Object
-        let user2: User? = mapJSON(mockData.invalidUserJSON)
-        XCTAssertNil(user2, "mapJSON returned non-nil user")
-    }
-    
-    func testMapArrayInvalidJSON() {
-        // NSData
-        let tasks: [Task]? = mapJSONArray(mockData.invalidTasksJSONData)
-        XCTAssertNil(tasks, "mapJSON returned non-nil tasks")
-        
-        // JSON Object
-        let tasks2: [Task]? = mapJSONArray(mockData.invalidTasksJSON)
-        XCTAssertNil(tasks2, "mapJSON returned non-nil tasks")
+        let tasks: [Task]? = decodeData(mockData.invalidTasksJSONData)
+        let tasksDecoded: Decoded<[Task]>? = decodeData(mockData.invalidTasksJSONData)
+        let user: User? = decodeData(mockData.invalidUserJSONData)
+        let userDecoded: Decoded<User>? = decodeData(mockData.invalidUserJSONData)
+
+        XCTAssert(tasks == nil, "decodeData should return nil tasks")
+        XCTAssert(tasksDecoded?.value == nil, "decodeData decoded should return nil tasks \(tasksDecoded)")
+        XCTAssert(user == nil, "decodeData should return nil user")
+        XCTAssert(userDecoded?.value == nil, "decodeData decoded should return nil user")
     }
     
 }

@@ -9,13 +9,15 @@
 import UIKit
 import Argo
 
+// MARK: Direct object conversion
+
 /// Creates an object from the given encoded JSON object
 ///
 /// :param: JSON data
 /// :returns: The decoded object
-public func mapJSON<T: JSONDecodable where T == T.DecodedType>(data: NSData?) -> T? {
-    if let json = JSONWithData(data) as? JSONObject {
-        return mapJSON(json)
+public func decodeData<T: Decodable where T == T.DecodedType>(data: NSData?) -> T? {
+    if let json: AnyObject = JSONWithData(data) {
+        return decode(json)
     }
     
     return .None
@@ -25,50 +27,43 @@ public func mapJSON<T: JSONDecodable where T == T.DecodedType>(data: NSData?) ->
 ///
 /// :param: JSON data
 /// :returns: An array containing the decoded objects
-public func mapJSONArray<T: JSONDecodable where T == T.DecodedType>(data: NSData?) -> [T]? {
-    if let json = JSONWithData(data) as? JSONArray {
-        return mapJSONArray(json)
+public func decodeData<T: Decodable where T == T.DecodedType>(data: NSData?) -> [T]? {
+    if let json: AnyObject = JSONWithData(data) {
+        return decode(json)
     }
     
     return .None
 }
 
-/// Creates an object from the given JSON object
+
+// MARK: Decoded type conversion
+
+/// Creates an object from the given encoded JSON object
 ///
 /// :param: JSON data
-/// :returns: The decoded object
-public func mapJSON<T: JSONDecodable where T == T.DecodedType>(object: JSONObject?) -> T? {
-    if let json = object {
-        let o = JSONValue.parse(json)
-        return T.decode(o)
+/// :returns: An instance of the `Decoded` type
+public func decodeData<T: Decodable where T == T.DecodedType>(data: NSData?) -> Decoded<T>? {
+    if let json: AnyObject = JSONWithData(data) {
+        return decode(json)
     }
     
     return .None
 }
 
-/// Creates an array of objects from the given JSON array
+/// Creates an array of objects from the given encoded JSON array
 ///
 /// :param: JSON data
-/// :returns: An array containing the decoded objects
-public func mapJSONArray<T: JSONDecodable where T == T.DecodedType>(array: JSONArray?) -> [T]? {
-    if let json = array {
-        let o = JSONValue.parse(json)
-        return JSONValue.mapDecode(o)
+/// :returns: An instance of the `Decoded` type
+public func decodeData<T: Decodable where T == T.DecodedType>(data: NSData?) -> Decoded<[T]>? {
+    if let json: AnyObject = JSONWithData(data) {
+        return decode(json)
     }
     
     return .None
 }
 
 
-// MARK: JSON Serialization Helper
-
-private func dataWithJSON(json: JSONObject?) -> NSData? {
-    if let json = json {
-        return NSJSONSerialization.dataWithJSONObject(json, options: NSJSONWritingOptions(), error: nil)
-    }
-    
-    return .None
-}
+// MARK: Private: JSON Serialization Helper
 
 private func JSONWithData(data: NSData?) -> AnyObject? {
     if let data = data {

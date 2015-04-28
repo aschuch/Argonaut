@@ -21,12 +21,12 @@ class MockDataLoader {
         return NSData(contentsOfFile: path)!
         }()
     
-    lazy var userJSON: JSONObject  = {
-        return NSJSONSerialization.JSONObjectWithData(self.userJSONData, options: NSJSONReadingOptions(), error: nil) as! JSONObject
+    lazy var userJSON: [String: AnyObject]  = {
+        return NSJSONSerialization.JSONObjectWithData(self.userJSONData, options: NSJSONReadingOptions(), error: nil) as! [String: AnyObject]
         }()
     
-    lazy var tasksJSON: JSONArray  = {
-        return NSJSONSerialization.JSONObjectWithData(self.tasksJSONData, options: NSJSONReadingOptions(), error: nil) as! JSONArray
+    lazy var tasksJSON: [[String: AnyObject]]  = {
+        return NSJSONSerialization.JSONObjectWithData(self.tasksJSONData, options: NSJSONReadingOptions(), error: nil) as! [[String: AnyObject]]
         }()
     
     lazy var invalidUserJSONData: NSData  = {
@@ -39,12 +39,12 @@ class MockDataLoader {
         return NSData(contentsOfFile: path)!
         }()
     
-    lazy var invalidUserJSON: JSONObject  = {
-        return NSJSONSerialization.JSONObjectWithData(self.invalidUserJSONData, options: NSJSONReadingOptions(), error: nil) as! JSONObject
+    lazy var invalidUserJSON: [String: AnyObject]  = {
+        return NSJSONSerialization.JSONObjectWithData(self.invalidUserJSONData, options: NSJSONReadingOptions(), error: nil) as! [String: AnyObject]
         }()
     
-    lazy var invalidTasksJSON: JSONArray  = {
-        return NSJSONSerialization.JSONObjectWithData(self.invalidTasksJSONData, options: NSJSONReadingOptions(), error: nil) as! JSONArray
+    lazy var invalidTasksJSON: [[String: AnyObject]]  = {
+        return NSJSONSerialization.JSONObjectWithData(self.invalidTasksJSONData, options: NSJSONReadingOptions(), error: nil) as! [[String: AnyObject]]
     }()
 
 }

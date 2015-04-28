@@ -9,54 +9,104 @@
 import Foundation
 import Argo
 import ReactiveCocoa
+import LlamaKit
 
-public typealias JSONObject = [String: AnyObject]
-public typealias JSONArray = [JSONObject]
 public let ArgonautErrorDomain = "com.aschuch.Argonaut.ErrorDomain"
 
-/// Until ReactiveCocoa swift is commonly used, we need to constrain this method to NSObjects :/
+public struct ArgonautError: ErrorType {
+    let reason: String
+    
+    public var nsError: NSError {
+        return NSError(domain: ArgonautErrorDomain, code: -1, userInfo: [NSLocalizedFailureReasonErrorKey: reason])
+    }
+}
+
+// MARK: ReactiveCocoa <= 2.x
+
 extension RACSignal {
     
-    /// Maps the given JSON object to an object of given classType
+    /// Maps the given JSON object (AnyObject) to an object of given classType
     ///
     /// :param: classType The type of the object that should be returned
     /// :returns: A new RACSignal emitting the decoded object
-    public func mapToObject<T: protocol<NSObjectProtocol, JSONDecodable> where T == T.DecodedType>(classType: T.Type) -> RACSignal {
+    public func mapToType<T: protocol<NSObjectProtocol, Decodable> where T == T.DecodedType>(classType: T.Type) -> RACSignal {
         return tryMap { (object, error) -> T! in
-            if let json = object as? JSONObject {
-                let o = JSONValue.parse(json)
-                if let decoded = classType.decode(o) {
-                    return decoded
+            let decoded: Decoded<T> = decode(object)
+            
+            switch decoded {
+            case .Success(let box):
+                return box.value
+            case .TypeMismatch(let reason):
+                if error != nil {
+                    error.memory = NSError(domain: ArgonautErrorDomain, code: -100, userInfo: [NSLocalizedFailureReasonErrorKey: reason])
                 }
+                return nil
+            case .MissingKey(let reason):
+                if error != nil {
+                    error.memory = NSError(domain: ArgonautErrorDomain, code: -200, userInfo: [NSLocalizedFailureReasonErrorKey: reason])
+                }
+                return nil
             }
-            
-            if error != nil {
-                error.memory = NSError(domain: ArgonautErrorDomain, code: -1, userInfo: ["data": object])
-            }
-            
-            return nil
         }
     }
+    
     
     /// Maps the given JSON object array to an array of objects of the given classType
     ///
     /// :param: classType The type of the array that should be returned
     /// :returns: A new RACSignal emitting an array of decoded objects
-    public func mapToObjectArray<T: protocol<NSObjectProtocol, JSONDecodable> where T == T.DecodedType>(classType: T.Type) -> RACSignal {
+    public func mapToTypeArray<T: protocol<NSObjectProtocol, Decodable> where T == T.DecodedType>(classType: T.Type) -> RACSignal {
         return tryMap { (object, error) -> AnyObject! in
-            if let json = object as? JSONArray {
-                let o = JSONValue.parse(json)
-                if let decoded: [T] = JSONValue.mapDecode(o) {
-                    return decoded
+            let decoded: Decoded<[T]> = decode(object)
+            
+            switch decoded {
+            case .Success(let box):
+                return box.value
+            case .TypeMismatch(let reason):
+                if error != nil {
+                    error.memory = NSError(domain: ArgonautErrorDomain, code: -100, userInfo: [NSLocalizedFailureReasonErrorKey: reason])
                 }
+                return nil
+            case .MissingKey(let reason):
+                if error != nil {
+                    error.memory = NSError(domain: ArgonautErrorDomain, code: -200, userInfo: [NSLocalizedFailureReasonErrorKey: reason])
+                }
+                return nil
             }
-            
-            if error != nil {
-                error.memory = NSError(domain: "JSON mapping Error", code: -1, userInfo: ["data": object])
-            }
-            
-            return nil
         }
     }
     
+}
+
+
+// MARK: ReactiveCocoa >= 3.x
+
+public func mapToType<T: Decodable, E where T == T.DecodedType>(classType: T.Type)(signal: Signal<AnyObject, NSError>) -> Signal<T, NSError> {
+    return signal |> tryMap { object in
+        let decoded: Decoded<T> = decode(object)
+        
+        switch decoded {
+        case .Success(let box):
+            return success(box.value)
+        case .TypeMismatch(let reason):
+            return failure(ArgonautError(reason: reason).nsError)
+        case .MissingKey(let reason):
+            return failure(ArgonautError(reason: reason).nsError)
+        }
+    }
+}
+
+public func mapToType<T: Decodable, E where T == T.DecodedType>(classType: T.Type)(signal: Signal<AnyObject, NSError>) -> Signal<[T], NSError> {
+    return signal |> tryMap { object in
+        let decoded: Decoded<[T]> = decode(object)
+        
+        switch decoded {
+        case .Success(let box):
+            return success(box.value)
+        case .TypeMismatch(let reason):
+            return failure(ArgonautError(reason: reason).nsError)
+        case .MissingKey(let reason):
+            return failure(ArgonautError(reason: reason).nsError)
+        }
+    }
 }

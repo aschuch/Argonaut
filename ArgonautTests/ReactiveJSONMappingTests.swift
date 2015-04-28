@@ -31,13 +31,13 @@ class ReactiveJSONMappingTests: XCTestCase {
     
     func testMapToObject() {
         var user: User?
-        userJSONSignal.mapToObject(User.self).subscribeNext { user = $0 as? User }
+        userJSONSignal.mapToType(User.self).subscribeNext { user = $0 as? User }
         XCTAssertNotNil(user, "mapToObject returned nil user")
     }
     
     func testMapToObjectArray() {
         var tasks: [Task]?
-        tasksJSONSignal.mapToObjectArray(Task.self).subscribeNext { tasks = $0 as? [Task] }
+        tasksJSONSignal.mapToTypeArray(Task.self).subscribeNext { tasks = $0 as? [Task] }
         XCTAssertNotNil(tasks, "mapToObject returned nil tasks")
         XCTAssertTrue(count(tasks!) == 3, "mapJSON returned wrong number of tasks")
     }
@@ -46,11 +46,11 @@ class ReactiveJSONMappingTests: XCTestCase {
         let signal = RACSignal.empty()
         
         var user: User?
-        signal.mapToObject(User.self).subscribeNext { user = $0 as? User }
+        signal.mapToType(User.self).subscribeNext { user = $0 as? User }
         XCTAssertNil(user, "mapToObject returned non-nil user")
         
         var tasks: [Task]?
-        signal.mapToObjectArray(Task.self).subscribeNext { tasks = $0 as? [Task] }
+        signal.mapToTypeArray(Task.self).subscribeNext { tasks = $0 as? [Task] }
         XCTAssertNil(tasks, "mapToObject returned non-nil tasks")
     }
     
