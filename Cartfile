@@ -1,2 +1,2 @@
-github "ReactiveCocoa/ReactiveCocoa" "v3.0-beta.1"
+github "ReactiveCocoa/ReactiveCocoa" "v3.0-beta.8"
 github "thoughtbot/Argo" ~> 1.0
