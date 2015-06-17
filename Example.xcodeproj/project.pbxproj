@@ -90,16 +90,6 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4D906FB31ACEF3A200ECD5F2 /* Copy Carthage Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Copy Carthage Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -316,7 +306,6 @@
 				4D7B5CDA1ACD336F0060D4B4 /* Frameworks */,
 				4D7B5CDB1ACD336F0060D4B4 /* Headers */,
 				4D7B5CDC1ACD336F0060D4B4 /* Resources */,
-				4D906FB31ACEF3A200ECD5F2 /* Copy Carthage Frameworks */,
 			);
 			buildRules = (
 			);
