@@ -9,7 +9,7 @@
 import Foundation
 import Argo
 import ReactiveCocoa
-import LlamaKit
+import Result
 
 public let ArgonautErrorDomain = "com.aschuch.Argonaut.ErrorDomain"
 
@@ -87,11 +87,11 @@ public func mapToType<X: Decodable where X == X.DecodedType>(classType: X.Type)(
         
         switch decoded {
         case .Success(let box):
-            return success(box.value)
+            return Result.success(box.value)
         case .TypeMismatch(let reason):
-            return failure(ArgonautError(reason: reason).nsError)
+            return Result.failure(ArgonautError(reason: reason).nsError)
         case .MissingKey(let reason):
-            return failure(ArgonautError(reason: reason).nsError)
+            return Result.failure(ArgonautError(reason: reason).nsError)
         }
     }
 }
@@ -102,11 +102,11 @@ public func mapToType<X: Decodable where X == X.DecodedType>(classType: X.Type)(
         
         switch decoded {
         case .Success(let box):
-            return success(box.value)
+            return Result.success(box.value)
         case .TypeMismatch(let reason):
-            return failure(ArgonautError(reason: reason).nsError)
+            return Result.failure(ArgonautError(reason: reason).nsError)
         case .MissingKey(let reason):
-            return failure(ArgonautError(reason: reason).nsError)
+            return Result.failure(ArgonautError(reason: reason).nsError)
         }
     }
 }
