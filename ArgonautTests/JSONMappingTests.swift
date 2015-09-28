@@ -36,11 +36,11 @@ class JSONMappingTests: XCTestCase {
         let tasksDecoded: Decoded<[Task]>? = decodeData(mockData.tasksJSONData)
 
         XCTAssertNotNil(tasks, "decodeData should return valid tasks")
-        XCTAssertTrue(count(tasks!) == 3, "decodeData returned wrong number of tasks")
+        XCTAssertTrue((tasks!).count == 3, "decodeData returned wrong number of tasks")
         
         let t = tasksDecoded?.value
         XCTAssertNotNil(t, "decodeData decoded should return valid tasks")
-        XCTAssertTrue(count(t!) == 3, "decodeData decoded returned wrong number of tasks")
+        XCTAssertTrue((t!).count == 3, "decodeData decoded returned wrong number of tasks")
     }
 
     func testMapNilJSON() {

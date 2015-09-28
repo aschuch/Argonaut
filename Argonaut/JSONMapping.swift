@@ -13,8 +13,8 @@ import Argo
 
 /// Creates an object from the given encoded JSON object
 ///
-/// :param: JSON data
-/// :returns: The decoded object
+/// - parameter JSON: data
+/// - returns: The decoded object
 public func decodeData<T: Decodable where T == T.DecodedType>(data: NSData?) -> T? {
     if let json: AnyObject = JSONWithData(data) {
         return decode(json)
@@ -25,8 +25,8 @@ public func decodeData<T: Decodable where T == T.DecodedType>(data: NSData?) -> 
 
 /// Creates an array of objects from the given encoded JSON array
 ///
-/// :param: JSON data
-/// :returns: An array containing the decoded objects
+/// - parameter JSON: data
+/// - returns: An array containing the decoded objects
 public func decodeData<T: Decodable where T == T.DecodedType>(data: NSData?) -> [T]? {
     if let json: AnyObject = JSONWithData(data) {
         return decode(json)
@@ -40,8 +40,8 @@ public func decodeData<T: Decodable where T == T.DecodedType>(data: NSData?) -> 
 
 /// Creates an object from the given encoded JSON object
 ///
-/// :param: JSON data
-/// :returns: An instance of the `Decoded` type
+/// - parameter JSON: data
+/// - returns: An instance of the `Decoded` type
 public func decodeData<T: Decodable where T == T.DecodedType>(data: NSData?) -> Decoded<T>? {
     if let json: AnyObject = JSONWithData(data) {
         return decode(json)
@@ -52,8 +52,8 @@ public func decodeData<T: Decodable where T == T.DecodedType>(data: NSData?) -> 
 
 /// Creates an array of objects from the given encoded JSON array
 ///
-/// :param: JSON data
-/// :returns: An instance of the `Decoded` type
+/// - parameter JSON: data
+/// - returns: An instance of the `Decoded` type
 public func decodeData<T: Decodable where T == T.DecodedType>(data: NSData?) -> Decoded<[T]>? {
     if let json: AnyObject = JSONWithData(data) {
         return decode(json)
@@ -67,7 +67,7 @@ public func decodeData<T: Decodable where T == T.DecodedType>(data: NSData?) -> 
 
 private func JSONWithData(data: NSData?) -> AnyObject? {
     if let data = data {
-        return NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(), error: nil)
+        return try? NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions())
     }
     
     return .None

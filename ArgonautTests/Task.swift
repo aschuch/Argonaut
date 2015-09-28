@@ -21,7 +21,7 @@ class Task: NSObject {
 
 extension Task: Decodable {
     class func create(name: String) -> Task {
-        return self(name: name)
+        return self.init(name: name)
     }
     
     class func decode(j: JSON) -> Decoded<Task> {

@@ -22,7 +22,7 @@ class User: NSObject {
 
 extension User: Decodable {
     class func create(name: String) -> User {
-        return self(name: name)
+        return self.init(name: name)
     }
     
     class func decode(j: JSON) -> Decoded<User> {

@@ -27,8 +27,8 @@ extension RACSignal {
     
     /// Maps the given JSON object (AnyObject) to an object of given classType
     ///
-    /// :param: classType The type of the object that should be returned
-    /// :returns: A new RACSignal emitting the decoded object
+    /// - parameter classType: The type of the object that should be returned
+    /// - returns: A new RACSignal emitting the decoded object
     public func mapToType<T: protocol<NSObjectProtocol, Decodable> where T == T.DecodedType>(classType: T.Type) -> RACSignal {
         return tryMap { (object, error) -> T! in
             let decoded: Decoded<T> = decode(object)
@@ -53,8 +53,8 @@ extension RACSignal {
     
     /// Maps the given JSON object array to an array of objects of the given classType
     ///
-    /// :param: classType The type of the array that should be returned
-    /// :returns: A new RACSignal emitting an array of decoded objects
+    /// - parameter classType: The type of the array that should be returned
+    /// - returns: A new RACSignal emitting an array of decoded objects
     public func mapToTypeArray<T: protocol<NSObjectProtocol, Decodable> where T == T.DecodedType>(classType: T.Type) -> RACSignal {
         return tryMap { (object, error) -> AnyObject! in
             let decoded: Decoded<[T]> = decode(object)

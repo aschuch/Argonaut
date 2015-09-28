@@ -59,7 +59,7 @@ class ReactiveJSONMappingTests: XCTestCase {
         var tasks: [Task]?
         tasksJSONSignal.mapToTypeArray(Task.self).subscribeNext { tasks = $0 as? [Task] }
         XCTAssertNotNil(tasks, "mapToObject returned nil tasks")
-        XCTAssertTrue(count(tasks!) == 3, "mapJSON returned wrong number of tasks")
+        XCTAssertTrue((tasks!).count == 3, "mapJSON returned wrong number of tasks")
     }
     
     func testEmptySignal() {
