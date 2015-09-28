@@ -27,23 +27,18 @@ extension RACSignal {
     
     /// Maps the given JSON object (AnyObject) to an object of given classType
     ///
-    /// :param: classType The type of the object that should be returned
-    /// :returns: A new RACSignal emitting the decoded object
+    /// - parameter classType: The type of the object that should be returned
+    /// - returns: A new RACSignal emitting the decoded object
     public func mapToType<T: protocol<NSObjectProtocol, Decodable> where T == T.DecodedType>(classType: T.Type) -> RACSignal {
         return tryMap { (object, error) -> T! in
             let decoded: Decoded<T> = decode(object)
             
             switch decoded {
-            case .Success(let box):
-                return box.value
-            case .TypeMismatch(let reason):
+            case .Success(let value):
+                return value
+            case .Failure(let failure):
                 if error != nil {
-                    error.memory = NSError(domain: ArgonautErrorDomain, code: -100, userInfo: [NSLocalizedFailureReasonErrorKey: reason])
-                }
-                return nil
-            case .MissingKey(let reason):
-                if error != nil {
-                    error.memory = NSError(domain: ArgonautErrorDomain, code: -200, userInfo: [NSLocalizedFailureReasonErrorKey: reason])
+                    error.memory = NSError(domain: ArgonautErrorDomain, code: -200, userInfo: [NSLocalizedFailureReasonErrorKey: failure.description])
                 }
                 return nil
             }
@@ -53,23 +48,18 @@ extension RACSignal {
     
     /// Maps the given JSON object array to an array of objects of the given classType
     ///
-    /// :param: classType The type of the array that should be returned
-    /// :returns: A new RACSignal emitting an array of decoded objects
+    /// - parameter classType: The type of the array that should be returned
+    /// - returns: A new RACSignal emitting an array of decoded objects
     public func mapToTypeArray<T: protocol<NSObjectProtocol, Decodable> where T == T.DecodedType>(classType: T.Type) -> RACSignal {
         return tryMap { (object, error) -> AnyObject! in
             let decoded: Decoded<[T]> = decode(object)
             
             switch decoded {
-            case .Success(let box):
-                return box.value
-            case .TypeMismatch(let reason):
+            case .Success(let value):
+                return value
+            case .Failure(let failure):
                 if error != nil {
-                    error.memory = NSError(domain: ArgonautErrorDomain, code: -100, userInfo: [NSLocalizedFailureReasonErrorKey: reason])
-                }
-                return nil
-            case .MissingKey(let reason):
-                if error != nil {
-                    error.memory = NSError(domain: ArgonautErrorDomain, code: -200, userInfo: [NSLocalizedFailureReasonErrorKey: reason])
+                    error.memory = NSError(domain: ArgonautErrorDomain, code: -200, userInfo: [NSLocalizedFailureReasonErrorKey: failure.description])
                 }
                 return nil
             }
@@ -79,34 +69,62 @@ extension RACSignal {
 }
 
 
-// MARK: ReactiveCocoa >= 3.x
+// MARK: ReactiveCocoa >= 4.x
+
+extension SignalType where T == AnyObject, E == NSError {
     
-public func mapToType<X: Decodable where X == X.DecodedType>(classType: X.Type)(signal: Signal<AnyObject, NSError>) -> Signal<X, NSError> {
-    return signal |> tryMap { object -> Result<X, NSError> in
-        let decoded: Decoded<X> = decode(object)
-        
-        switch decoded {
-        case .Success(let box):
-            return Result.success(box.value)
-        case .TypeMismatch(let reason):
-            return Result.failure(ArgonautError(reason: reason).nsError)
-        case .MissingKey(let reason):
-            return Result.failure(ArgonautError(reason: reason).nsError)
+    /// Maps the given JSON object within the stream to an object of given classType
+    ///
+    /// - parameter classType: The type of the object that should be returned
+    /// - returns: A new Signal emitting the decoded object
+    public func mapToType<X: Decodable where X == X.DecodedType>(classType: X.Type) -> Signal<X, NSError> {
+        return self.attemptMap { object -> Result<X, NSError> in
+            let decoded: Decoded<X> = decode(object)
+            
+            switch decoded {
+            case .Success(let value):
+                return .Success(value)
+            case .Failure(let error):
+                return .Failure(ArgonautError(reason: error.description).nsError)
+            }
         }
     }
+    
+    /// Maps the given JSON object array within the stream to an array of objects of the given classType
+    ///
+    /// - parameter classType: The type of the array that should be returned
+    /// - returns: A new Signal emitting an array of decoded objects
+    public func mapToType<X: Decodable where X == X.DecodedType>(classType: X.Type) -> Signal<[X], NSError> {
+        return self.attemptMap { object -> Result<[X], NSError> in
+            let decoded: Decoded<[X]> = decode(object)
+            
+            switch decoded {
+            case .Success(let value):
+                return .Success(value)
+            case .Failure(let error):
+                return .Failure(ArgonautError(reason: error.description).nsError)
+            }
+        }
+    }
+    
 }
 
-public func mapToType<X: Decodable where X == X.DecodedType>(classType: X.Type)(signal: Signal<AnyObject, NSError>) -> Signal<[X], NSError> {
-    return signal |> tryMap { object -> Result<[X], NSError> in
-        let decoded: Decoded<[X]> = decode(object)
-        
-        switch decoded {
-        case .Success(let box):
-            return Result.success(box.value)
-        case .TypeMismatch(let reason):
-            return Result.failure(ArgonautError(reason: reason).nsError)
-        case .MissingKey(let reason):
-            return Result.failure(ArgonautError(reason: reason).nsError)
-        }
+extension SignalProducerType where T == AnyObject, E == NSError {
+    
+    /// Maps the given JSON object within the stream to an object of given classType
+    ///
+    /// - parameter classType: The type of the object that should be returned
+    /// - returns: A new Signal emitting the decoded object
+    public func mapToType<X: Decodable where X == X.DecodedType>(classType: X.Type) -> SignalProducer<X, NSError> {
+        return lift { $0.mapToType(classType) }
     }
+    
+    /// Maps the given JSON object array within the stream to an array of objects of the given classType
+    ///
+    /// - parameter classType: The type of the array that should be returned
+    /// - returns: A new Signal emitting an array of decoded objects
+    public func mapToType<X: Decodable where X == X.DecodedType>(classType: X.Type) -> SignalProducer<[X], NSError> {
+        return lift { $0.mapToType(classType) }
+    }
+    
 }
