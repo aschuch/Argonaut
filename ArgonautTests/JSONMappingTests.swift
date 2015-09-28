@@ -25,7 +25,7 @@ class JSONMappingTests: XCTestCase {
         let userDecoded: Decoded<User>? = decodeData(mockData.userJSONData)
         XCTAssertNotNil(user, "decodeData should return valid user")
 
-        var u = userDecoded?.value
+        let u = userDecoded?.value
         XCTAssertNotNil(u, "decodeData decoded should return valid user")
     }
     

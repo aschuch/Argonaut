@@ -77,22 +77,22 @@ class ReactiveJSONMappingTests: XCTestCase {
     func testRAC3() {
         var user: User?
         userJSONSignalProducer
-            |> mapToType(User.self)
-            |> start(next: { user = $0 })
+            .mapToType(User.self)
+            .startWithNext { user = $0 }
         
         XCTAssertNotNil(user, "mapToType should not return nil user")
         
         var tasks: [Task]?
         tasksJSONSignalProducer
-            |> mapToType(Task.self)
-            |> start(next: { tasks = $0 })
+            .mapToType(Task.self)
+            .startWithNext { tasks = $0 }
         
         XCTAssertNotNil(tasks, "mapToType should not return nil tasks")
         
         var invalidTasks: [Task]? = nil
         invalidTasksJSONSignalProducer
-            |> mapToType(Task.self)
-            |> start(next: { invalidTasks = $0 })
+            .mapToType(Task.self)
+            .startWithNext { invalidTasks = $0 }
         
         XCTAssert(invalidTasks == nil, "mapToType should return nil tasks for invalid JSON")
     }
