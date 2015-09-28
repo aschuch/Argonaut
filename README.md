@@ -30,7 +30,9 @@ let tasksDecoded: Decoded<[Task]>? = decodeData(responseData)
 
 ### Reactive Cocoa
 
-Argonaut also supports JSON mapping on ReactiveCocoa signals.
+Argonaut also supports JSON mapping on ReactiveCocoa 2.0 (`RACSignal`) and 4.0 (`Signal and SignalProducer`).
+
+#### 2.0
 
 ```swift
 // Create models from JSON dictionary
@@ -50,6 +52,22 @@ jsonSignal.mapToTypeArray(Task.self).subscribeNext({ [weak self] tasks in
     // Error in the ArgonautErrorDomain
     println(error)
 })
+```
+
+#### 4.0
+
+```swift
+// Create models from JSON dictionary
+let jsonSignalProducer: SignalProducer<AnyObject, NSError> = // ...
+jsonSignalProducer.mapToType(User.self).startWithNext { [weak self] user in
+    // use the User model
+}
+
+// Create array of models from array of JSON dictionaries
+let jsonSignalProducer: SignalProducer<AnyObject, NSError> = // ...
+jsonSignalProducer.mapToType(Task.self). startWithNext { [weak self] tasks in
+    // use the array of Task models
+}
 ```
 
 ## Installation
