@@ -71,9 +71,9 @@ extension RACSignal {
 
 // MARK: ReactiveCocoa >= 4.x
 
-extension SignalType where T == AnyObject, E == NSError {
+extension SignalType where Value == AnyObject, Error == NSError {
     
-    /// Maps the given JSON object within the stream to an object of given classType
+    /// Maps the given SON object within the stream to an object of given classType
     ///
     /// - parameter classType: The type of the object that should be returned
     /// - returns: A new Signal emitting the decoded object
@@ -94,7 +94,7 @@ extension SignalType where T == AnyObject, E == NSError {
     ///
     /// - parameter classType: The type of the array that should be returned
     /// - returns: A new Signal emitting an array of decoded objects
-    public func mapToType<X: Decodable where X == X.DecodedType>(classType: X.Type) -> Signal<[X], NSError> {
+    public func mapToTypeArray<X: Decodable where X == X.DecodedType>(classType: X.Type) -> Signal<[X], NSError> {
         return self.attemptMap { object -> Result<[X], NSError> in
             let decoded: Decoded<[X]> = decode(object)
             
@@ -109,7 +109,7 @@ extension SignalType where T == AnyObject, E == NSError {
     
 }
 
-extension SignalProducerType where T == AnyObject, E == NSError {
+extension SignalProducerType where Value == AnyObject, Error == NSError {
     
     /// Maps the given JSON object within the stream to an object of given classType
     ///
@@ -123,8 +123,8 @@ extension SignalProducerType where T == AnyObject, E == NSError {
     ///
     /// - parameter classType: The type of the array that should be returned
     /// - returns: A new Signal emitting an array of decoded objects
-    public func mapToType<X: Decodable where X == X.DecodedType>(classType: X.Type) -> SignalProducer<[X], NSError> {
-        return lift { $0.mapToType(classType) }
+    public func mapToTypeArray<X: Decodable where X == X.DecodedType>(classType: X.Type) -> SignalProducer<[X], NSError> {
+        return lift { $0.mapToTypeArray(classType) }
     }
     
 }

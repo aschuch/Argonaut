@@ -30,34 +30,28 @@ class ReactiveJSONMappingTests: XCTestCase {
     }()
     
     lazy var userJSONSignalProducer: SignalProducer<AnyObject, NSError> = {
-        return SignalProducer { sink, disposable in
-            sendNext(sink, self.mockData.userJSON)
-        }
+        return SignalProducer(value: self.mockData.userJSON)
     }()
     
     lazy var tasksJSONSignalProducer: SignalProducer<AnyObject, NSError> = {
-        return SignalProducer { sink, disposable in
-            sendNext(sink, self.mockData.tasksJSON)
-        }
+        return SignalProducer(value: self.mockData.tasksJSON)
     }()
     
     
     lazy var invalidTasksJSONSignalProducer: SignalProducer<AnyObject, NSError> = {
-        return SignalProducer { sink, disposable in
-            sendNext(sink, self.mockData.invalidTasksJSONData)
-        }
+        return SignalProducer(value: self.mockData.invalidTasksJSONData)
     }()
     
     
     func testMapToObject() {
         var user: User?
-        userJSONSignal.mapToType(User.self).subscribeNext { user = $0 as? User }
+        userJSONSignal.mapToType(User).subscribeNext { user = $0 as? User }
         XCTAssertNotNil(user, "mapToObject returned nil user")
     }
     
     func testMapToObjectArray() {
         var tasks: [Task]?
-        tasksJSONSignal.mapToTypeArray(Task.self).subscribeNext { tasks = $0 as? [Task] }
+        tasksJSONSignal.mapToTypeArray(Task).subscribeNext { tasks = $0 as? [Task] }
         XCTAssertNotNil(tasks, "mapToObject returned nil tasks")
         XCTAssertTrue((tasks!).count == 3, "mapJSON returned wrong number of tasks")
     }
@@ -66,32 +60,32 @@ class ReactiveJSONMappingTests: XCTestCase {
         let signal = RACSignal.empty()
         
         var user: User?
-        signal.mapToType(User.self).subscribeNext { user = $0 as? User }
+        signal.mapToType(User).subscribeNext { user = $0 as? User }
         XCTAssertNil(user, "mapToObject returned non-nil user")
         
         var tasks: [Task]?
-        signal.mapToTypeArray(Task.self).subscribeNext { tasks = $0 as? [Task] }
+        signal.mapToTypeArray(Task).subscribeNext { tasks = $0 as? [Task] }
         XCTAssertNil(tasks, "mapToObject returned non-nil tasks")
     }
     
-    func testRAC3() {
+    func testRAC4() {
         var user: User?
         userJSONSignalProducer
-            .mapToType(User.self)
+            .mapToType(User)
             .startWithNext { user = $0 }
         
         XCTAssertNotNil(user, "mapToType should not return nil user")
         
         var tasks: [Task]?
         tasksJSONSignalProducer
-            .mapToType(Task.self)
+            .mapToTypeArray(Task)
             .startWithNext { tasks = $0 }
         
         XCTAssertNotNil(tasks, "mapToType should not return nil tasks")
         
         var invalidTasks: [Task]? = nil
         invalidTasksJSONSignalProducer
-            .mapToType(Task.self)
+            .mapToTypeArray(Task)
             .startWithNext { invalidTasks = $0 }
         
         XCTAssert(invalidTasks == nil, "mapToType should return nil tasks for invalid JSON")
