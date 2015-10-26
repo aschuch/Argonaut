@@ -1,6 +1,8 @@
 # Argonaut
 
+[![Build Status](https://travis-ci.org/aschuch/Argonaut.svg)](https://travis-ci.org/aschuch/Argonaut)
 ![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)
+![Swift 2.1](https://img.shields.io/badge/Swift-2.1-orange.svg)
 
 A collection of (reactive) JSON parsing helpers for the [Argo](https://github.com/thoughtbot/Argo) JSON parser.
 
@@ -37,7 +39,7 @@ Argonaut also supports JSON mapping on ReactiveCocoa 2.0 (`RACSignal`) and 4.0 (
 ```swift
 // Create models from JSON dictionary
 let jsonSignal = // ... emits [String: AnyObject]
-jsonSignal.mapToType(User.self).subscribeNext({ [weak self] user in
+jsonSignal.mapToType(User).subscribeNext({ [weak self] user in
     // use the User model
 }, error: { error in
     // Error in the ArgonautErrorDomain
@@ -46,7 +48,7 @@ jsonSignal.mapToType(User.self).subscribeNext({ [weak self] user in
 
 // Create array of models from array of JSON dictionaries
 let jsonSignal = // ... emits [[String: AnyObject]]
-jsonSignal.mapToTypeArray(Task.self).subscribeNext({ [weak self] tasks in
+jsonSignal.mapToTypeArray(Task).subscribeNext({ [weak self] tasks in
     // use the array of Task models
 }, error: { error in
     // Error in the ArgonautErrorDomain
@@ -59,13 +61,13 @@ jsonSignal.mapToTypeArray(Task.self).subscribeNext({ [weak self] tasks in
 ```swift
 // Create models from JSON dictionary
 let jsonSignalProducer: SignalProducer<AnyObject, NSError> = // ...
-jsonSignalProducer.mapToType(User.self).startWithNext { [weak self] user in
+jsonSignalProducer.mapToType(User).startWithNext { [weak self] user in
     // use the User model
 }
 
 // Create array of models from array of JSON dictionaries
 let jsonSignalProducer: SignalProducer<AnyObject, NSError> = // ...
-jsonSignalProducer.mapToType(Task.self). startWithNext { [weak self] tasks in
+jsonSignalProducer.mapToTypeArray(Task). startWithNext { [weak self] tasks in
     // use the array of Task models
 }
 ```
