@@ -43,6 +43,20 @@
 		4DB5CA941BB96B0E00571D98 /* ReactiveCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB5CA811BB96AEA00571D98 /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4DB5CA951BB96B0E00571D98 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB5CA821BB96AEA00571D98 /* Result.framework */; };
 		4DB5CA961BB96B0E00571D98 /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB5CA821BB96AEA00571D98 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4DF567C41C4162E8007FBED7 /* JSONMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B5D001ACD33B90060D4B4 /* JSONMapping.swift */; };
+		4DF567C51C4162E8007FBED7 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B5CFF1ACD33B90060D4B4 /* Encodable.swift */; };
+		4DF567C61C4162E8007FBED7 /* JSONMapping+ReactiveCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B5D011ACD33B90060D4B4 /* JSONMapping+ReactiveCocoa.swift */; };
+		4DF567C81C4162E8007FBED7 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB5CA821BB96AEA00571D98 /* Result.framework */; };
+		4DF567C91C4162E8007FBED7 /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB5CA801BB96AEA00571D98 /* Argo.framework */; };
+		4DF567CA1C4162E8007FBED7 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB5CA811BB96AEA00571D98 /* ReactiveCocoa.framework */; };
+		4DF567CC1C4162E8007FBED7 /* Argonaut.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D7B5CE21ACD336F0060D4B4 /* Argonaut.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4DF567D51C4162F1007FBED7 /* JSONMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B5D001ACD33B90060D4B4 /* JSONMapping.swift */; };
+		4DF567D61C4162F1007FBED7 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B5CFF1ACD33B90060D4B4 /* Encodable.swift */; };
+		4DF567D71C4162F1007FBED7 /* JSONMapping+ReactiveCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B5D011ACD33B90060D4B4 /* JSONMapping+ReactiveCocoa.swift */; };
+		4DF567D91C4162F1007FBED7 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB5CA821BB96AEA00571D98 /* Result.framework */; };
+		4DF567DA1C4162F1007FBED7 /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB5CA801BB96AEA00571D98 /* Argo.framework */; };
+		4DF567DB1C4162F1007FBED7 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB5CA811BB96AEA00571D98 /* ReactiveCocoa.framework */; };
+		4DF567DD1C4162F1007FBED7 /* Argonaut.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D7B5CE21ACD336F0060D4B4 /* Argonaut.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +130,10 @@
 		4DB5CA811BB96AEA00571D98 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = SOURCE_ROOT; };
 		4DB5CA821BB96AEA00571D98 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = SOURCE_ROOT; };
 		4DB5CA8C1BB96AFB00571D98 /* Runes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Runes.framework; path = Carthage/Build/iOS/Runes.framework; sourceTree = SOURCE_ROOT; };
+		4DF567D11C4162E8007FBED7 /* Argonaut.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Argonaut.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DF567E21C4162F1007FBED7 /* Argonaut.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Argonaut.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DF567E41C4163A6007FBED7 /* Info-tvOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-tvOS.plist"; sourceTree = "<group>"; };
+		4DF567E51C4163A6007FBED7 /* Info-watchOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-watchOS.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +171,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4DF567C71C4162E8007FBED7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DF567C81C4162E8007FBED7 /* Result.framework in Frameworks */,
+				4DF567C91C4162E8007FBED7 /* Argo.framework in Frameworks */,
+				4DF567CA1C4162E8007FBED7 /* ReactiveCocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DF567D81C4162F1007FBED7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DF567D91C4162F1007FBED7 /* Result.framework in Frameworks */,
+				4DF567DA1C4162F1007FBED7 /* Argo.framework in Frameworks */,
+				4DF567DB1C4162F1007FBED7 /* ReactiveCocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -173,6 +211,8 @@
 				4D7B5CB41ACD335E0060D4B4 /* Example.app */,
 				4D7B5CDE1ACD336F0060D4B4 /* Argonaut.framework */,
 				4D7B5CE81ACD336F0060D4B4 /* ArgonautTests.xctest */,
+				4DF567D11C4162E8007FBED7 /* Argonaut.framework */,
+				4DF567E21C4162F1007FBED7 /* Argonaut.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -214,6 +254,8 @@
 			isa = PBXGroup;
 			children = (
 				4D7B5CE11ACD336F0060D4B4 /* Info.plist */,
+				4DF567E41C4163A6007FBED7 /* Info-tvOS.plist */,
+				4DF567E51C4163A6007FBED7 /* Info-watchOS.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -266,6 +308,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4DF567CB1C4162E8007FBED7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DF567CC1C4162E8007FBED7 /* Argonaut.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DF567DC1C4162F1007FBED7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DF567DD1C4162F1007FBED7 /* Argonaut.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -288,9 +346,9 @@
 			productReference = 4D7B5CB41ACD335E0060D4B4 /* Example.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4D7B5CDD1ACD336F0060D4B4 /* Argonaut */ = {
+		4D7B5CDD1ACD336F0060D4B4 /* Argonaut-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4D7B5CF71ACD336F0060D4B4 /* Build configuration list for PBXNativeTarget "Argonaut" */;
+			buildConfigurationList = 4D7B5CF71ACD336F0060D4B4 /* Build configuration list for PBXNativeTarget "Argonaut-iOS" */;
 			buildPhases = (
 				4D7B5CD91ACD336F0060D4B4 /* Sources */,
 				4D7B5CDA1ACD336F0060D4B4 /* Frameworks */,
@@ -301,7 +359,7 @@
 			);
 			dependencies = (
 			);
-			name = Argonaut;
+			name = "Argonaut-iOS";
 			productName = Argonaut;
 			productReference = 4D7B5CDE1ACD336F0060D4B4 /* Argonaut.framework */;
 			productType = "com.apple.product-type.framework";
@@ -324,6 +382,42 @@
 			productName = ArgonautTests;
 			productReference = 4D7B5CE81ACD336F0060D4B4 /* ArgonautTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4DF567C21C4162E8007FBED7 /* Argonaut-watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4DF567CE1C4162E8007FBED7 /* Build configuration list for PBXNativeTarget "Argonaut-watchOS" */;
+			buildPhases = (
+				4DF567C31C4162E8007FBED7 /* Sources */,
+				4DF567C71C4162E8007FBED7 /* Frameworks */,
+				4DF567CB1C4162E8007FBED7 /* Headers */,
+				4DF567CD1C4162E8007FBED7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Argonaut-watchOS";
+			productName = Argonaut;
+			productReference = 4DF567D11C4162E8007FBED7 /* Argonaut.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		4DF567D31C4162F1007FBED7 /* Argonaut-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4DF567DF1C4162F1007FBED7 /* Build configuration list for PBXNativeTarget "Argonaut-tvOS" */;
+			buildPhases = (
+				4DF567D41C4162F1007FBED7 /* Sources */,
+				4DF567D81C4162F1007FBED7 /* Frameworks */,
+				4DF567DC1C4162F1007FBED7 /* Headers */,
+				4DF567DE1C4162F1007FBED7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Argonaut-tvOS";
+			productName = Argonaut;
+			productReference = 4DF567E21C4162F1007FBED7 /* Argonaut.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -362,8 +456,10 @@
 			projectRoot = "";
 			targets = (
 				4D7B5CB31ACD335E0060D4B4 /* Example */,
-				4D7B5CDD1ACD336F0060D4B4 /* Argonaut */,
+				4D7B5CDD1ACD336F0060D4B4 /* Argonaut-iOS */,
 				4D7B5CE71ACD336F0060D4B4 /* ArgonautTests */,
+				4DF567C21C4162E8007FBED7 /* Argonaut-watchOS */,
+				4DF567D31C4162F1007FBED7 /* Argonaut-tvOS */,
 			);
 		};
 /* End PBXProject section */
@@ -394,6 +490,20 @@
 				4D7B5D4F1ACD47B90060D4B4 /* tasks_invalid.json in Resources */,
 				4D7B5D501ACD47B90060D4B4 /* user_invalid.json in Resources */,
 				4D7B5D491ACD3DE00060D4B4 /* tasks.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DF567CD1C4162E8007FBED7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DF567DE1C4162F1007FBED7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,17 +541,37 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4DF567C31C4162E8007FBED7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DF567C41C4162E8007FBED7 /* JSONMapping.swift in Sources */,
+				4DF567C51C4162E8007FBED7 /* Encodable.swift in Sources */,
+				4DF567C61C4162E8007FBED7 /* JSONMapping+ReactiveCocoa.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DF567D41C4162F1007FBED7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DF567D51C4162F1007FBED7 /* JSONMapping.swift in Sources */,
+				4DF567D61C4162F1007FBED7 /* Encodable.swift in Sources */,
+				4DF567D71C4162F1007FBED7 /* JSONMapping+ReactiveCocoa.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		4D7B5CEB1ACD336F0060D4B4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4D7B5CDD1ACD336F0060D4B4 /* Argonaut */;
+			target = 4D7B5CDD1ACD336F0060D4B4 /* Argonaut-iOS */;
 			targetProxy = 4D7B5CEA1ACD336F0060D4B4 /* PBXContainerItemProxy */;
 		};
 		4D7B5CF41ACD336F0060D4B4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4D7B5CDD1ACD336F0060D4B4 /* Argonaut */;
+			target = 4D7B5CDD1ACD336F0060D4B4 /* Argonaut-iOS */;
 			targetProxy = 4D7B5CF31ACD336F0060D4B4 /* PBXContainerItemProxy */;
 		};
 		4D9BD84F1AEFDFFA00E77E40 /* PBXTargetDependency */ = {
@@ -609,7 +739,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.aschuch.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Argonaut;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -635,7 +765,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.aschuch.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Argonaut;
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -678,6 +808,120 @@
 			};
 			name = Release;
 		};
+		4DF567CF1C4162E8007FBED7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Example",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Argonaut/Info-watchOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aschuch.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = Argonaut;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4DF567D01C4162E8007FBED7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Example",
+				);
+				INFOPLIST_FILE = "Argonaut/Info-watchOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aschuch.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = Argonaut;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4DF567E01C4162F1007FBED7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Example",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Argonaut/Info-tvOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aschuch.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = Argonaut;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4DF567E11C4162F1007FBED7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Example",
+				);
+				INFOPLIST_FILE = "Argonaut/Info-tvOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aschuch.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = Argonaut;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -699,7 +943,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4D7B5CF71ACD336F0060D4B4 /* Build configuration list for PBXNativeTarget "Argonaut" */ = {
+		4D7B5CF71ACD336F0060D4B4 /* Build configuration list for PBXNativeTarget "Argonaut-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4D7B5CF81ACD336F0060D4B4 /* Debug */,
@@ -713,6 +957,24 @@
 			buildConfigurations = (
 				4D7B5CFC1ACD336F0060D4B4 /* Debug */,
 				4D7B5CFD1ACD336F0060D4B4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4DF567CE1C4162E8007FBED7 /* Build configuration list for PBXNativeTarget "Argonaut-watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4DF567CF1C4162E8007FBED7 /* Debug */,
+				4DF567D01C4162E8007FBED7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4DF567DF1C4162F1007FBED7 /* Build configuration list for PBXNativeTarget "Argonaut-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4DF567E01C4162F1007FBED7 /* Debug */,
+				4DF567E11C4162F1007FBED7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
