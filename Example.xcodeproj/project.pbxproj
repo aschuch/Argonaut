@@ -47,31 +47,24 @@
 		4D81D59B1C41A003009A66A7 /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D81D5961C41A003009A66A7 /* Argo.framework */; };
 		4D81D59D1C41A003009A66A7 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D81D5971C41A003009A66A7 /* ReactiveCocoa.framework */; };
 		4D81D59F1C41A003009A66A7 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D81D5981C41A003009A66A7 /* Result.framework */; };
-		4D81D5A11C41A003009A66A7 /* Runes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D81D5991C41A003009A66A7 /* Runes.framework */; };
 		4D81D5A61C41A018009A66A7 /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D81D5A21C41A018009A66A7 /* Argo.framework */; };
 		4D81D5A71C41A018009A66A7 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D81D5A31C41A018009A66A7 /* ReactiveCocoa.framework */; };
 		4D81D5A81C41A018009A66A7 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D81D5A41C41A018009A66A7 /* Result.framework */; };
-		4D81D5A91C41A018009A66A7 /* Runes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D81D5A51C41A018009A66A7 /* Runes.framework */; };
 		4D81D5AE1C41A023009A66A7 /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D81D5AA1C41A023009A66A7 /* Argo.framework */; };
 		4D81D5AF1C41A023009A66A7 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D81D5AB1C41A023009A66A7 /* ReactiveCocoa.framework */; };
 		4D81D5B01C41A023009A66A7 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D81D5AC1C41A023009A66A7 /* Result.framework */; };
-		4D81D5B11C41A023009A66A7 /* Runes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D81D5AD1C41A023009A66A7 /* Runes.framework */; };
 		4D81D5B21C41A04C009A66A7 /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D81D5961C41A003009A66A7 /* Argo.framework */; };
 		4D81D5B31C41A04C009A66A7 /* Argo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D81D5961C41A003009A66A7 /* Argo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4D81D5B41C41A04D009A66A7 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D81D5971C41A003009A66A7 /* ReactiveCocoa.framework */; };
 		4D81D5B51C41A04D009A66A7 /* ReactiveCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D81D5971C41A003009A66A7 /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4D81D5B61C41A04D009A66A7 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D81D5981C41A003009A66A7 /* Result.framework */; };
 		4D81D5B71C41A04D009A66A7 /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D81D5981C41A003009A66A7 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4D81D5B81C41A04D009A66A7 /* Runes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D81D5991C41A003009A66A7 /* Runes.framework */; };
-		4D81D5B91C41A04D009A66A7 /* Runes.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D81D5991C41A003009A66A7 /* Runes.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4D81D5BA1C41A06E009A66A7 /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D81D5AA1C41A023009A66A7 /* Argo.framework */; };
 		4D81D5BB1C41A06E009A66A7 /* Argo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D81D5AA1C41A023009A66A7 /* Argo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4D81D5BC1C41A06E009A66A7 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D81D5AB1C41A023009A66A7 /* ReactiveCocoa.framework */; };
 		4D81D5BD1C41A06E009A66A7 /* ReactiveCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D81D5AB1C41A023009A66A7 /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4D81D5BE1C41A06E009A66A7 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D81D5AC1C41A023009A66A7 /* Result.framework */; };
 		4D81D5BF1C41A06E009A66A7 /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D81D5AC1C41A023009A66A7 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4D81D5C01C41A06E009A66A7 /* Runes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D81D5AD1C41A023009A66A7 /* Runes.framework */; };
-		4D81D5C11C41A06E009A66A7 /* Runes.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D81D5AD1C41A023009A66A7 /* Runes.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4D906FA61ACEF29700ECD5F2 /* Argonaut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7B5CDE1ACD336F0060D4B4 /* Argonaut.framework */; };
 /* End PBXBuildFile section */
 
@@ -130,7 +123,6 @@
 				4D7B5CF61ACD336F0060D4B4 /* Argonaut.framework in Embed Frameworks */,
 				4D81D5B51C41A04D009A66A7 /* ReactiveCocoa.framework in Embed Frameworks */,
 				4D81D5B31C41A04C009A66A7 /* Argo.framework in Embed Frameworks */,
-				4D81D5B91C41A04D009A66A7 /* Runes.framework in Embed Frameworks */,
 				4D81D5B71C41A04D009A66A7 /* Result.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -167,7 +159,6 @@
 				4D81D58A1C417DF9009A66A7 /* Argonaut.framework in Embed Frameworks */,
 				4D81D5BD1C41A06E009A66A7 /* ReactiveCocoa.framework in Embed Frameworks */,
 				4D81D5BB1C41A06E009A66A7 /* Argo.framework in Embed Frameworks */,
-				4D81D5C11C41A06E009A66A7 /* Runes.framework in Embed Frameworks */,
 				4D81D5BF1C41A06E009A66A7 /* Result.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -216,15 +207,12 @@
 		4D81D5961C41A003009A66A7 /* Argo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Argo.framework; path = Carthage/Build/iOS/Argo.framework; sourceTree = SOURCE_ROOT; };
 		4D81D5971C41A003009A66A7 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = SOURCE_ROOT; };
 		4D81D5981C41A003009A66A7 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = SOURCE_ROOT; };
-		4D81D5991C41A003009A66A7 /* Runes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Runes.framework; path = Carthage/Build/iOS/Runes.framework; sourceTree = SOURCE_ROOT; };
 		4D81D5A21C41A018009A66A7 /* Argo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Argo.framework; path = Carthage/Build/tvOS/Argo.framework; sourceTree = SOURCE_ROOT; };
 		4D81D5A31C41A018009A66A7 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/tvOS/ReactiveCocoa.framework; sourceTree = SOURCE_ROOT; };
 		4D81D5A41C41A018009A66A7 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/tvOS/Result.framework; sourceTree = SOURCE_ROOT; };
-		4D81D5A51C41A018009A66A7 /* Runes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Runes.framework; path = Carthage/Build/tvOS/Runes.framework; sourceTree = SOURCE_ROOT; };
 		4D81D5AA1C41A023009A66A7 /* Argo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Argo.framework; path = Carthage/Build/watchOS/Argo.framework; sourceTree = SOURCE_ROOT; };
 		4D81D5AB1C41A023009A66A7 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/watchOS/ReactiveCocoa.framework; sourceTree = SOURCE_ROOT; };
 		4D81D5AC1C41A023009A66A7 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/watchOS/Result.framework; sourceTree = SOURCE_ROOT; };
-		4D81D5AD1C41A023009A66A7 /* Runes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Runes.framework; path = Carthage/Build/watchOS/Runes.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,7 +223,6 @@
 				4D7B5CF51ACD336F0060D4B4 /* Argonaut.framework in Frameworks */,
 				4D81D5B41C41A04D009A66A7 /* ReactiveCocoa.framework in Frameworks */,
 				4D81D5B21C41A04C009A66A7 /* Argo.framework in Frameworks */,
-				4D81D5B81C41A04D009A66A7 /* Runes.framework in Frameworks */,
 				4D81D5B61C41A04D009A66A7 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,7 +231,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D81D5A11C41A003009A66A7 /* Runes.framework in Frameworks */,
 				4D81D59F1C41A003009A66A7 /* Result.framework in Frameworks */,
 				4D81D59B1C41A003009A66A7 /* Argo.framework in Frameworks */,
 				4D81D59D1C41A003009A66A7 /* ReactiveCocoa.framework in Frameworks */,
@@ -263,7 +249,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D81D5A91C41A018009A66A7 /* Runes.framework in Frameworks */,
 				4D81D5A81C41A018009A66A7 /* Result.framework in Frameworks */,
 				4D81D5A61C41A018009A66A7 /* Argo.framework in Frameworks */,
 				4D81D5A71C41A018009A66A7 /* ReactiveCocoa.framework in Frameworks */,
@@ -274,7 +259,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D81D5B11C41A023009A66A7 /* Runes.framework in Frameworks */,
 				4D81D5B01C41A023009A66A7 /* Result.framework in Frameworks */,
 				4D81D5AE1C41A023009A66A7 /* Argo.framework in Frameworks */,
 				4D81D5AF1C41A023009A66A7 /* ReactiveCocoa.framework in Frameworks */,
@@ -288,7 +272,6 @@
 				4D81D5891C417DF9009A66A7 /* Argonaut.framework in Frameworks */,
 				4D81D5BC1C41A06E009A66A7 /* ReactiveCocoa.framework in Frameworks */,
 				4D81D5BA1C41A06E009A66A7 /* Argo.framework in Frameworks */,
-				4D81D5C01C41A06E009A66A7 /* Runes.framework in Frameworks */,
 				4D81D5BE1C41A06E009A66A7 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -408,7 +391,6 @@
 				4D81D5961C41A003009A66A7 /* Argo.framework */,
 				4D81D5971C41A003009A66A7 /* ReactiveCocoa.framework */,
 				4D81D5981C41A003009A66A7 /* Result.framework */,
-				4D81D5991C41A003009A66A7 /* Runes.framework */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
@@ -419,7 +401,6 @@
 				4D81D5AA1C41A023009A66A7 /* Argo.framework */,
 				4D81D5AB1C41A023009A66A7 /* ReactiveCocoa.framework */,
 				4D81D5AC1C41A023009A66A7 /* Result.framework */,
-				4D81D5AD1C41A023009A66A7 /* Runes.framework */,
 			);
 			name = watchOS;
 			sourceTree = "<group>";
@@ -430,7 +411,6 @@
 				4D81D5A21C41A018009A66A7 /* Argo.framework */,
 				4D81D5A31C41A018009A66A7 /* ReactiveCocoa.framework */,
 				4D81D5A41C41A018009A66A7 /* Result.framework */,
-				4D81D5A51C41A018009A66A7 /* Runes.framework */,
 			);
 			name = tvOS;
 			sourceTree = "<group>";
@@ -1300,6 +1280,7 @@
 				4D81D4CA1C4170DA009A66A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4D81D4E51C41714D009A66A7 /* Build configuration list for PBXNativeTarget "Argonaut-watchOS" */ = {
 			isa = XCConfigurationList;
@@ -1308,6 +1289,7 @@
 				4D81D4E71C41714D009A66A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4D81D5501C417BA9009A66A7 /* Build configuration list for PBXNativeTarget "ExampleWatch Extension" */ = {
 			isa = XCConfigurationList;
@@ -1316,6 +1298,7 @@
 				4D81D5521C417BA9009A66A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4D81D5541C417BA9009A66A7 /* Build configuration list for PBXNativeTarget "ExampleWatch" */ = {
 			isa = XCConfigurationList;
@@ -1324,6 +1307,7 @@
 				4D81D5561C417BA9009A66A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
