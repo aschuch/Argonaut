@@ -14,15 +14,17 @@ import Result
 public let ArgonautErrorDomain = "com.aschuch.Argonaut.ErrorDomain"
 
 public struct ArgonautError: ErrorType {
+    let type: String
     let reason: String
     
     public var nsError: NSError {
-        return NSError(domain: ArgonautErrorDomain, code: -1, userInfo: [NSLocalizedFailureReasonErrorKey: reason])
+        return NSError(domain: ArgonautErrorDomain, code: -1, userInfo: [NSLocalizedFailureReasonErrorKey: "\(type): \(reason)"])
     }
 }
 
 // MARK: ReactiveCocoa <= 2.x
 
+@available(*, deprecated, message="RACSignal extensions will be removed as soon as ReactiveCocoa 4 becomes final.")
 extension RACSignal {
     
     /// Maps the given JSON object (AnyObject) to an object of given classType
@@ -38,7 +40,7 @@ extension RACSignal {
                 return value
             case .Failure(let failure):
                 if error != nil {
-                    error.memory = NSError(domain: ArgonautErrorDomain, code: -200, userInfo: [NSLocalizedFailureReasonErrorKey: failure.description])
+                    error.memory = ArgonautError(type: String(T), reason: failure.description).nsError
                 }
                 return nil
             }
@@ -59,7 +61,7 @@ extension RACSignal {
                 return value
             case .Failure(let failure):
                 if error != nil {
-                    error.memory = NSError(domain: ArgonautErrorDomain, code: -200, userInfo: [NSLocalizedFailureReasonErrorKey: failure.description])
+                    error.memory = ArgonautError(type: "[\(String(T))]", reason: failure.description).nsError
                 }
                 return nil
             }
@@ -85,7 +87,7 @@ extension SignalType where Value == AnyObject, Error == NSError {
             case .Success(let value):
                 return .Success(value)
             case .Failure(let error):
-                return .Failure(ArgonautError(reason: error.description).nsError)
+                return .Failure(ArgonautError(type: String(X), reason: error.description).nsError)
             }
         }
     }
@@ -102,7 +104,7 @@ extension SignalType where Value == AnyObject, Error == NSError {
             case .Success(let value):
                 return .Success(value)
             case .Failure(let error):
-                return .Failure(ArgonautError(reason: error.description).nsError)
+                return .Failure(ArgonautError(type: "[\(String(X))]", reason: error.description).nsError)
             }
         }
     }
