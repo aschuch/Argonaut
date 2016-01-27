@@ -91,4 +91,15 @@ class ReactiveJSONMappingTests: XCTestCase {
         XCTAssert(invalidTasks == nil, "mapToType should return nil tasks for invalid JSON")
     }
     
+    func testUnderlyingError() {
+        var error: ArgonautError?
+        let sentError = NSError(domain: "test", code: -9000, userInfo: nil)
+        let (producer, observer) = SignalProducer<AnyObject, NSError>.buffer()
+        
+        producer.mapToType(User).startWithFailed { error = $0 }
+        observer.sendFailed(sentError)
+        
+        XCTAssertNotNil(error, "error should not be nil")
+        XCTAssertEqual(error?.nsError, sentError, "the sent error should be wrapped in an .Underlying error")
+    }
 }
