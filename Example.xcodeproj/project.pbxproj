@@ -16,7 +16,6 @@
 		4D7B5CF21ACD336F0060D4B4 /* JSONMappingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B5CF11ACD336F0060D4B4 /* JSONMappingTests.swift */; };
 		4D7B5CF51ACD336F0060D4B4 /* Argonaut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7B5CDE1ACD336F0060D4B4 /* Argonaut.framework */; };
 		4D7B5CF61ACD336F0060D4B4 /* Argonaut.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7B5CDE1ACD336F0060D4B4 /* Argonaut.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4D7B5D041ACD33B90060D4B4 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B5CFF1ACD33B90060D4B4 /* Encodable.swift */; };
 		4D7B5D051ACD33B90060D4B4 /* JSONMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B5D001ACD33B90060D4B4 /* JSONMapping.swift */; };
 		4D7B5D061ACD33B90060D4B4 /* JSONMapping+ReactiveCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B5D011ACD33B90060D4B4 /* JSONMapping+ReactiveCocoa.swift */; };
 		4D7B5D421ACD3A230060D4B4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B5D411ACD3A230060D4B4 /* User.swift */; };
@@ -32,8 +31,6 @@
 		4D81D4EC1C4171B2009A66A7 /* JSONMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B5D001ACD33B90060D4B4 /* JSONMapping.swift */; };
 		4D81D4EE1C4171B6009A66A7 /* JSONMapping+ReactiveCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B5D011ACD33B90060D4B4 /* JSONMapping+ReactiveCocoa.swift */; };
 		4D81D4EF1C4171B6009A66A7 /* JSONMapping+ReactiveCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B5D011ACD33B90060D4B4 /* JSONMapping+ReactiveCocoa.swift */; };
-		4D81D4F01C4171B8009A66A7 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B5CFF1ACD33B90060D4B4 /* Encodable.swift */; };
-		4D81D4F11C4171B9009A66A7 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B5CFF1ACD33B90060D4B4 /* Encodable.swift */; };
 		4D81D5391C417BA8009A66A7 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D81D5371C417BA8009A66A7 /* Interface.storyboard */; };
 		4D81D53B1C417BA8009A66A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D81D53A1C417BA8009A66A7 /* Assets.xcassets */; };
 		4D81D5421C417BA9009A66A7 /* ExampleWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4D81D5411C417BA9009A66A7 /* ExampleWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -104,13 +101,6 @@
 			remoteGlobalIDString = 4D81D4DF1C41714D009A66A7;
 			remoteInfo = "Argonaut-watchOS";
 		};
-		4D9BD84E1AEFDFFA00E77E40 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4D7B5CAC1ACD335E0060D4B4 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4D7B5CB31ACD335E0060D4B4;
-			remoteInfo = Example;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -180,7 +170,6 @@
 		4D7B5CE81ACD336F0060D4B4 /* ArgonautTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArgonautTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D7B5CF01ACD336F0060D4B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D7B5CF11ACD336F0060D4B4 /* JSONMappingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONMappingTests.swift; sourceTree = "<group>"; };
-		4D7B5CFF1ACD33B90060D4B4 /* Encodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
 		4D7B5D001ACD33B90060D4B4 /* JSONMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONMapping.swift; sourceTree = "<group>"; };
 		4D7B5D011ACD33B90060D4B4 /* JSONMapping+ReactiveCocoa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSONMapping+ReactiveCocoa.swift"; sourceTree = "<group>"; };
 		4D7B5D411ACD3A230060D4B4 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -330,7 +319,6 @@
 			children = (
 				4D7B5D001ACD33B90060D4B4 /* JSONMapping.swift */,
 				4D7B5D011ACD33B90060D4B4 /* JSONMapping+ReactiveCocoa.swift */,
-				4D7B5CFF1ACD33B90060D4B4 /* Encodable.swift */,
 				4D7B5CE21ACD336F0060D4B4 /* Argonaut.h */,
 				4D7B5CE01ACD336F0060D4B4 /* Supporting Files */,
 			);
@@ -513,7 +501,6 @@
 			);
 			dependencies = (
 				4D7B5CEB1ACD336F0060D4B4 /* PBXTargetDependency */,
-				4D9BD84F1AEFDFFA00E77E40 /* PBXTargetDependency */,
 			);
 			name = ArgonautTests;
 			productName = ArgonautTests;
@@ -728,7 +715,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D7B5D051ACD33B90060D4B4 /* JSONMapping.swift in Sources */,
-				4D7B5D041ACD33B90060D4B4 /* Encodable.swift in Sources */,
 				4D7B5D061ACD33B90060D4B4 /* JSONMapping+ReactiveCocoa.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -750,7 +736,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D81D4EC1C4171B2009A66A7 /* JSONMapping.swift in Sources */,
-				4D81D4F01C4171B8009A66A7 /* Encodable.swift in Sources */,
 				4D81D4EE1C4171B6009A66A7 /* JSONMapping+ReactiveCocoa.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -760,7 +745,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D81D5781C417D8D009A66A7 /* JSONMapping.swift in Sources */,
-				4D81D4F11C4171B9009A66A7 /* Encodable.swift in Sources */,
 				4D81D4EF1C4171B6009A66A7 /* JSONMapping+ReactiveCocoa.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -801,11 +785,6 @@
 			isa = PBXTargetDependency;
 			target = 4D81D4DF1C41714D009A66A7 /* Argonaut-watchOS */;
 			targetProxy = 4D81D58B1C417DF9009A66A7 /* PBXContainerItemProxy */;
-		};
-		4D9BD84F1AEFDFFA00E77E40 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4D7B5CB31ACD335E0060D4B4 /* Example */;
-			targetProxy = 4D9BD84E1AEFDFFA00E77E40 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

@@ -2,7 +2,8 @@
 
 [![Build Status](https://travis-ci.org/aschuch/Argonaut.svg)](https://travis-ci.org/aschuch/Argonaut)
 ![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)
-![Swift 2.1](https://img.shields.io/badge/Swift-2.1-orange.svg)
+![Swift 2.2](https://img.shields.io/badge/Swift-2.2-orange.svg)
+![Platform](https://img.shields.io/badge/platform-iOS%20%7C%20watchOS%20%7C%20tvOS-lightgrey.svg)
 
 A collection of (reactive) JSON parsing helpers for the [Argo](https://github.com/thoughtbot/Argo) JSON parser.
 

@@ -45,44 +45,24 @@ class ReactiveJSONMappingTests: XCTestCase {
     
     func testMapToObject() {
         var user: User?
-        userJSONSignal.mapToType(User).subscribeNext { user = $0 as? User }
-        XCTAssertNotNil(user, "mapToObject returned nil user")
+        userJSONSignalProducer
+            .mapToType(User)
+            .startWithNext { user = $0 }
+
+        XCTAssertNotNil(user, "mapToType should not return nil user")
     }
     
     func testMapToObjectArray() {
         var tasks: [Task]?
-        tasksJSONSignal.mapToTypeArray(Task).subscribeNext { tasks = $0 as? [Task] }
-        XCTAssertNotNil(tasks, "mapToObject returned nil tasks")
-        XCTAssertTrue((tasks!).count == 3, "mapJSON returned wrong number of tasks")
-    }
-    
-    func testEmptySignal() {
-        let signal = RACSignal.empty()
-        
-        var user: User?
-        signal.mapToType(User).subscribeNext { user = $0 as? User }
-        XCTAssertNil(user, "mapToObject returned non-nil user")
-        
-        var tasks: [Task]?
-        signal.mapToTypeArray(Task).subscribeNext { tasks = $0 as? [Task] }
-        XCTAssertNil(tasks, "mapToObject returned non-nil tasks")
-    }
-    
-    func testRAC4() {
-        var user: User?
-        userJSONSignalProducer
-            .mapToType(User)
-            .startWithNext { user = $0 }
-        
-        XCTAssertNotNil(user, "mapToType should not return nil user")
-        
-        var tasks: [Task]?
         tasksJSONSignalProducer
             .mapToTypeArray(Task)
             .startWithNext { tasks = $0 }
-        
+
         XCTAssertNotNil(tasks, "mapToType should not return nil tasks")
-        
+        XCTAssertTrue((tasks!).count == 3, "mapJSON returned wrong number of tasks")
+    }
+    
+    func testInvalidTasks() {
         var invalidTasks: [Task]? = nil
         invalidTasksJSONSignalProducer
             .mapToTypeArray(Task)
@@ -94,7 +74,7 @@ class ReactiveJSONMappingTests: XCTestCase {
     func testUnderlyingError() {
         var error: ArgonautError?
         let sentError = NSError(domain: "test", code: -9000, userInfo: nil)
-        let (producer, observer) = SignalProducer<AnyObject, NSError>.buffer()
+        let (producer, observer) = SignalProducer<AnyObject, NSError>.buffer(1)
         
         producer.mapToType(User).startWithFailed { error = $0 }
         observer.sendFailed(sentError)

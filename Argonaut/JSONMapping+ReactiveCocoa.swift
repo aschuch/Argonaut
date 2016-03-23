@@ -28,57 +28,6 @@ public enum ArgonautError: ErrorType {
     }
 }
 
-// MARK: ReactiveCocoa <= 2.x
-
-@available(*, deprecated, message="RACSignal extensions will be removed as soon as ReactiveCocoa 4 becomes final.")
-extension RACSignal {
-    
-    /// Maps the given JSON object (AnyObject) to an object of given classType
-    ///
-    /// - parameter classType: The type of the object that should be returned
-    /// - returns: A new RACSignal emitting the decoded object
-    public func mapToType<T: protocol<NSObjectProtocol, Decodable> where T == T.DecodedType>(classType: T.Type) -> RACSignal {
-        return tryMap { (object, error) -> T! in
-            let decoded: Decoded<T> = decode(object)
-            
-            switch decoded {
-            case .Success(let value):
-                return value
-            case .Failure(let failure):
-                if error != nil {
-                    error.memory = ArgonautError.Decoding(type: String(T), reason: failure.description).nsError
-                }
-                return nil
-            }
-        }
-    }
-    
-    
-    /// Maps the given JSON object array to an array of objects of the given classType
-    ///
-    /// - parameter classType: The type of the array that should be returned
-    /// - returns: A new RACSignal emitting an array of decoded objects
-    public func mapToTypeArray<T: protocol<NSObjectProtocol, Decodable> where T == T.DecodedType>(classType: T.Type) -> RACSignal {
-        return tryMap { (object, error) -> AnyObject! in
-            let decoded: Decoded<[T]> = decode(object)
-            
-            switch decoded {
-            case .Success(let value):
-                return value
-            case .Failure(let failure):
-                if error != nil {
-                    error.memory = ArgonautError.Decoding(type: "[\(String(T))]", reason: failure.description).nsError
-                }
-                return nil
-            }
-        }
-    }
-    
-}
-
-
-// MARK: ReactiveCocoa >= 4.x
-
 extension SignalType where Value == AnyObject {
     
     /// Maps the given JSON object within the stream to an object of given classType
