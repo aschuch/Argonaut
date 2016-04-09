@@ -200,6 +200,8 @@
 		4D81D5AA1C41A023009A66A7 /* Argo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Argo.framework; path = Carthage/Build/watchOS/Argo.framework; sourceTree = SOURCE_ROOT; };
 		4D81D5AB1C41A023009A66A7 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/watchOS/ReactiveCocoa.framework; sourceTree = SOURCE_ROOT; };
 		4D81D5AC1C41A023009A66A7 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/watchOS/Result.framework; sourceTree = SOURCE_ROOT; };
+		4DB44A981CB924B300472E06 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		4DB44A991CB924B300472E06 /* Cartfile.private */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile.private; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,6 +271,8 @@
 		4D7B5CAB1ACD335E0060D4B4 = {
 			isa = PBXGroup;
 			children = (
+				4DB44A981CB924B300472E06 /* Cartfile */,
+				4DB44A991CB924B300472E06 /* Cartfile.private */,
 				4D7B5CB61ACD335E0060D4B4 /* Example */,
 				4D7B5CDF1ACD336F0060D4B4 /* Argonaut */,
 				4D7B5CEE1ACD336F0060D4B4 /* ArgonautTests */,
