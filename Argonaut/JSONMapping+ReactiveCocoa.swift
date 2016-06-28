@@ -44,10 +44,16 @@ extension SignalType where Value == AnyObject {
     ///
     /// - parameter classType: The type of the object that should be returned
     /// - returns: A new Signal emitting the decoded object
-    public func mapToType<X: Decodable where X == X.DecodedType>(classType: X.Type) -> Signal<X, ArgonautError> {
+    public func mapToType<X: Decodable where X == X.DecodedType>(classType: X.Type, rootKey: String? = nil) -> Signal<X, ArgonautError> {
         return mapError { ArgonautError.Underlying($0) }
             .attemptMap { object in
-                let decoded: Decoded<X> = decode(object)
+                let decoded: Decoded<X>
+                if let rootKey = rootKey, let object = object as? [String: AnyObject] {
+                    decoded = decode(object, rootKey: rootKey)
+                } else {
+                    decoded = decode(object)
+                }
+
                 return result(decoded)
             }
     }
@@ -56,10 +62,15 @@ extension SignalType where Value == AnyObject {
     ///
     /// - parameter classType: The type of the array that should be returned
     /// - returns: A new Signal emitting an array of decoded objects
-    public func mapToTypeArray<X: Decodable where X == X.DecodedType>(classType: X.Type) -> Signal<[X], ArgonautError> {
+    public func mapToTypeArray<X: Decodable where X == X.DecodedType>(classType: X.Type, rootKey: String? = nil) -> Signal<[X], ArgonautError> {
         return mapError { ArgonautError.Underlying($0) }
             .attemptMap { object in
-                let decoded: Decoded<[X]> = decode(object)
+                let decoded: Decoded<[X]>
+                if let rootKey = rootKey, let object = object as? [String: AnyObject] {
+                    decoded = decode(object, rootKey: rootKey)
+                } else {
+                    decoded = decode(object)
+                }
                 return result(decoded)
             }
     }
@@ -84,36 +95,4 @@ extension SignalProducerType where Value == AnyObject {
         return lift { $0.mapToTypeArray(classType) }
     }
     
-}
-
-extension SignalType where Value == [String: AnyObject] {
-
-    public func mapToType<X: Decodable where X == X.DecodedType>(classType: X.Type, rootKey: String) -> Signal<X, ArgonautError> {
-        return mapError { ArgonautError.Underlying($0) }
-            .attemptMap { object in
-                let decoded: Decoded<X> = decode(object, rootKey: rootKey)
-                return result(decoded)
-            }
-    }
-
-    public func mapToTypeArray<X: Decodable where X == X.DecodedType>(classType: X.Type, rootKey: String) -> Signal<[X], ArgonautError> {
-        return mapError { ArgonautError.Underlying($0) }
-            .attemptMap { object in
-                let decoded: Decoded<[X]> = decode(object, rootKey: rootKey)
-                return result(decoded)
-            }
-    }
-
-}
-
-extension SignalProducerType where Value == [String: AnyObject] {
-
-    public func mapToType<X: Decodable where X == X.DecodedType>(classType: X.Type, rootKey: String) -> SignalProducer<X, ArgonautError> {
-        return lift { $0.mapToType(classType, rootKey: rootKey) }
-    }
-
-    public func mapToTypeArray<X: Decodable where X == X.DecodedType>(classType: X.Type, rootKey: String) -> SignalProducer<[X], ArgonautError> {
-        return lift { $0.mapToTypeArray(classType, rootKey: rootKey) }
-    }
-
 }
