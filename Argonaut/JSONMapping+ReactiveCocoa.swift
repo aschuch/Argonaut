@@ -28,7 +28,7 @@ public enum ArgonautError: ErrorType {
     }
 }
 
-/// Transforms a decoded object to a result or an Argomaut error
+/// Transforms a decoded object to a result or an Argonaut error
 private func result<T>(decoded: Decoded<T>) -> Result<T, ArgonautError> {
     switch decoded {
     case .Success(let value):
