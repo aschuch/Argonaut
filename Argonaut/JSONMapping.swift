@@ -15,24 +15,24 @@ import Argo
 ///
 /// - parameter JSON: data
 /// - returns: The decoded object
-public func decodeData<T: Decodable where T == T.DecodedType>(data: NSData?) -> T? {
-    if let json: AnyObject = JSONWithData(data) {
+public func decodeData<T: Decodable>(_ data: Data?) -> T? where T == T.DecodedType {
+    if let json = JSONWithData(data) {
         return decode(json)
     }
     
-    return .None
+    return .none
 }
 
 /// Creates an array of objects from the given encoded JSON array
 ///
 /// - parameter JSON: data
 /// - returns: An array containing the decoded objects
-public func decodeData<T: Decodable where T == T.DecodedType>(data: NSData?) -> [T]? {
-    if let json: AnyObject = JSONWithData(data) {
+public func decodeData<T: Decodable>(_ data: Data?) -> [T]? where T == T.DecodedType {
+    if let json = JSONWithData(data) {
         return decode(json)
     }
     
-    return .None
+    return .none
 }
 
 
@@ -42,33 +42,33 @@ public func decodeData<T: Decodable where T == T.DecodedType>(data: NSData?) -> 
 ///
 /// - parameter JSON: data
 /// - returns: An instance of the `Decoded` type
-public func decodeData<T: Decodable where T == T.DecodedType>(data: NSData?) -> Decoded<T>? {
-    if let json: AnyObject = JSONWithData(data) {
+public func decodeData<T: Decodable>(_ data: Data?) -> Decoded<T>? where T == T.DecodedType {
+    if let json = JSONWithData(data) {
         return decode(json)
     }
     
-    return .None
+    return .none
 }
 
 /// Creates an array of objects from the given encoded JSON array
 ///
 /// - parameter JSON: data
 /// - returns: An instance of the `Decoded` type
-public func decodeData<T: Decodable where T == T.DecodedType>(data: NSData?) -> Decoded<[T]>? {
-    if let json: AnyObject = JSONWithData(data) {
+public func decodeData<T: Decodable>(_ data: Data?) -> Decoded<[T]>? where T == T.DecodedType {
+    if let json = JSONWithData(data) {
         return decode(json)
     }
     
-    return .None
+    return .none
 }
 
 
 // MARK: Private: JSON Serialization Helper
 
-private func JSONWithData(data: NSData?) -> AnyObject? {
+private func JSONWithData(_ data: Data?) -> Any? {
     if let data = data {
-        return try? NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions())
+        return try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions())
     }
     
-    return .None
+    return .none
 }

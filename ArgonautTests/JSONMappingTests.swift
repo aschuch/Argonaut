@@ -44,7 +44,7 @@ class JSONMappingTests: XCTestCase {
     }
 
     func testMapNilJSON() {
-        let data: NSData? = nil
+        let data: Data? = nil
         let tasks: [Task]? = decodeData(data)
         let tasksDecoded: Decoded<[Task]>? = decodeData(data)
         let user: User? = decodeData(data)

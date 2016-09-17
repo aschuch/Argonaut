@@ -21,11 +21,11 @@ class User: NSObject {
 }
 
 extension User: Decodable {
-    class func create(name: String) -> User {
+    class func create(_ name: String) -> User {
         return self.init(name: name)
     }
     
-    class func decode(j: JSON) -> Decoded<User> {
+    class func decode(_ j: JSON) -> Decoded<User> {
         return User.create
             <^> j <| "name"
     }

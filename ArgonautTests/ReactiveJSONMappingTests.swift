@@ -8,7 +8,7 @@
 
 import UIKit
 import XCTest
-import ReactiveCocoa
+import ReactiveSwift
 import Argonaut
 import Result
 
@@ -30,16 +30,16 @@ class ReactiveJSONMappingTests: XCTestCase {
         }
     }()
     
-    lazy var userJSONSignalProducer: SignalProducer<AnyObject, NSError> = {
+    lazy var userJSONSignalProducer: SignalProducer<Any, NSError> = {
         return SignalProducer(value: self.mockData.userJSON)
     }()
     
-    lazy var tasksJSONSignalProducer: SignalProducer<AnyObject, NSError> = {
+    lazy var tasksJSONSignalProducer: SignalProducer<Any, NSError> = {
         return SignalProducer(value: self.mockData.tasksJSON)
     }()
     
     
-    lazy var invalidTasksJSONSignalProducer: SignalProducer<AnyObject, NSError> = {
+    lazy var invalidTasksJSONSignalProducer: SignalProducer<Any, NSError> = {
         return SignalProducer(value: self.mockData.invalidTasksJSONData)
     }()
     
@@ -75,7 +75,7 @@ class ReactiveJSONMappingTests: XCTestCase {
     func testUnderlyingError() {
         var error: ArgonautError?
         let sentError = NSError(domain: "test", code: -9000, userInfo: nil)
-        let (signal, sink) = Signal<AnyObject, NSError>.pipe()
+        let (signal, sink) = Signal<Any, NSError>.pipe()
         
         signal.mapToType(User.self).observeFailed { error = $0 }
         sink.sendFailed(sentError)

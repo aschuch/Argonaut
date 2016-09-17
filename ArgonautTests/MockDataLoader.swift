@@ -11,40 +11,40 @@ import Argonaut
 
 class MockDataLoader {
 
-    lazy var userJSONData: NSData  = {
-        let path = NSBundle(forClass: self.dynamicType).pathForResource("user", ofType: "json")!
-        return NSData(contentsOfFile: path)!
+    lazy var userJSONData: Data  = {
+        let path = Bundle(for: type(of: self)).path(forResource: "user", ofType: "json")!
+        return (try! Data(contentsOf: URL(fileURLWithPath: path)))
         }()
     
-    lazy var tasksJSONData: NSData  = {
-        let path = NSBundle(forClass: self.dynamicType).pathForResource("tasks", ofType: "json")!
-        return NSData(contentsOfFile: path)!
+    lazy var tasksJSONData: Data  = {
+        let path = Bundle(for: type(of: self)).path(forResource: "tasks", ofType: "json")!
+        return (try! Data(contentsOf: URL(fileURLWithPath: path)))
         }()
     
-    lazy var userJSON: [String: AnyObject]  = {
-        return (try! NSJSONSerialization.JSONObjectWithData(self.userJSONData, options: NSJSONReadingOptions())) as! [String: AnyObject]
+    lazy var userJSON: [String: Any]  = {
+        return try! JSONSerialization.jsonObject(with: self.userJSONData, options: JSONSerialization.ReadingOptions()) as! [String: Any]
         }()
     
-    lazy var tasksJSON: [[String: AnyObject]]  = {
-        return (try! NSJSONSerialization.JSONObjectWithData(self.tasksJSONData, options: NSJSONReadingOptions())) as! [[String: AnyObject]]
+    lazy var tasksJSON: [[String: Any]]  = {
+        return try! JSONSerialization.jsonObject(with: self.tasksJSONData, options: JSONSerialization.ReadingOptions()) as! [[String: Any]]
         }()
     
-    lazy var invalidUserJSONData: NSData  = {
-        let path = NSBundle(forClass: self.dynamicType).pathForResource("user_invalid", ofType: "json")!
-        return NSData(contentsOfFile: path)!
+    lazy var invalidUserJSONData: Data  = {
+        let path = Bundle(for: type(of: self)).path(forResource: "user_invalid", ofType: "json")!
+        return (try! Data(contentsOf: URL(fileURLWithPath: path)))
         }()
     
-    lazy var invalidTasksJSONData: NSData  = {
-        let path = NSBundle(forClass: self.dynamicType).pathForResource("tasks_invalid", ofType: "json")!
-        return NSData(contentsOfFile: path)!
+    lazy var invalidTasksJSONData: Data  = {
+        let path = Bundle(for: type(of: self)).path(forResource: "tasks_invalid", ofType: "json")!
+        return (try! Data(contentsOf: URL(fileURLWithPath: path)))
         }()
     
-    lazy var invalidUserJSON: [String: AnyObject]  = {
-        return (try! NSJSONSerialization.JSONObjectWithData(self.invalidUserJSONData, options: NSJSONReadingOptions())) as! [String: AnyObject]
+    lazy var invalidUserJSON: [String: Any]  = {
+        return try! JSONSerialization.jsonObject(with: self.invalidUserJSONData, options: JSONSerialization.ReadingOptions()) as! [String: Any]
         }()
     
-    lazy var invalidTasksJSON: [[String: AnyObject]]  = {
-        return (try! NSJSONSerialization.JSONObjectWithData(self.invalidTasksJSONData, options: NSJSONReadingOptions())) as! [[String: AnyObject]]
+    lazy var invalidTasksJSON: [[String: Any]]  = {
+        return try! JSONSerialization.jsonObject(with: self.invalidTasksJSONData, options: JSONSerialization.ReadingOptions()) as! [[String: Any]]
     }()
 
 }
