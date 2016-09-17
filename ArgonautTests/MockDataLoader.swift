@@ -11,40 +11,47 @@ import Argonaut
 
 class MockDataLoader {
 
-    lazy var userJSONData: Data  = {
-        let path = Bundle(for: type(of: self)).path(forResource: "user", ofType: "json")!
-        return (try! Data(contentsOf: URL(fileURLWithPath: path)))
-        }()
-    
-    lazy var tasksJSONData: Data  = {
-        let path = Bundle(for: type(of: self)).path(forResource: "tasks", ofType: "json")!
-        return (try! Data(contentsOf: URL(fileURLWithPath: path)))
-        }()
-    
+    private func jsonData(_ name: String) -> Data {
+        let bundle = Bundle(for: type(of: self))
+        let url = bundle.url(forResource: name, withExtension: "json")!
+        return try! Data(contentsOf: url)
+    }
+
+
+
+    // MARK: Data
+
+    lazy var userJSONData: Data = self.jsonData("user")
+    lazy var tasksJSONData: Data = self.jsonData("tasks")
+    lazy var invalidUserJSONData: Data = self.jsonData("user_invalid")
+    lazy var invalidTasksJSONData: Data = self.jsonData("tasks_invalid")
+    lazy var userRootKeyJSONData: Data  = self.jsonData("user_rootkey")
+    lazy var tasksRootKeyJSONData: Data = self.jsonData("tasks_rootkey")
+
+    // MARK: JSON
+
     lazy var userJSON: [String: Any]  = {
-        return try! JSONSerialization.jsonObject(with: self.userJSONData, options: JSONSerialization.ReadingOptions()) as! [String: Any]
-        }()
+        return try! JSONSerialization.jsonObject(with: self.userJSONData, options: []) as! [String: Any]
+    }()
     
     lazy var tasksJSON: [[String: Any]]  = {
-        return try! JSONSerialization.jsonObject(with: self.tasksJSONData, options: JSONSerialization.ReadingOptions()) as! [[String: Any]]
-        }()
-    
-    lazy var invalidUserJSONData: Data  = {
-        let path = Bundle(for: type(of: self)).path(forResource: "user_invalid", ofType: "json")!
-        return (try! Data(contentsOf: URL(fileURLWithPath: path)))
-        }()
-    
-    lazy var invalidTasksJSONData: Data  = {
-        let path = Bundle(for: type(of: self)).path(forResource: "tasks_invalid", ofType: "json")!
-        return (try! Data(contentsOf: URL(fileURLWithPath: path)))
-        }()
-    
+        return try! JSONSerialization.jsonObject(with: self.tasksJSONData, options: []) as! [[String: Any]]
+    }()
+
     lazy var invalidUserJSON: [String: Any]  = {
-        return try! JSONSerialization.jsonObject(with: self.invalidUserJSONData, options: JSONSerialization.ReadingOptions()) as! [String: Any]
-        }()
+        return try! JSONSerialization.jsonObject(with: self.invalidUserJSONData, options: []) as! [String: Any]
+    }()
     
     lazy var invalidTasksJSON: [[String: Any]]  = {
-        return try! JSONSerialization.jsonObject(with: self.invalidTasksJSONData, options: JSONSerialization.ReadingOptions()) as! [[String: Any]]
+        return try! JSONSerialization.jsonObject(with: self.invalidTasksJSONData, options: []) as! [[String: Any]]
+    }()
+
+    lazy var userRootKeyJSON: [String: Any]  = {
+        return try! JSONSerialization.jsonObject(with: self.userRootKeyJSONData, options: []) as! [String: Any]
+    }()
+
+    lazy var tasksRootKeyJSON: [String: Any]  = {
+        return try! JSONSerialization.jsonObject(with: self.tasksRootKeyJSONData, options: []) as! [String: Any]
     }()
 
 }

@@ -23,6 +23,8 @@
 		4D2BEA7B1D8DA3F6003870CC /* Runes.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D2BEA781D8DA3F3003870CC /* Runes.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4D2BEA7D1D8DA404003870CC /* Runes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D2BEA7C1D8DA404003870CC /* Runes.framework */; };
 		4D2BEA7F1D8DA40F003870CC /* Runes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D2BEA7E1D8DA40F003870CC /* Runes.framework */; };
+		4D2BEA821D8DA566003870CC /* tasks_rootkey.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D2BEA801D8DA566003870CC /* tasks_rootkey.json */; };
+		4D2BEA831D8DA566003870CC /* user_rootkey.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D2BEA811D8DA566003870CC /* user_rootkey.json */; };
 		4D7B5CBA1ACD335E0060D4B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B5CB91ACD335E0060D4B4 /* AppDelegate.swift */; };
 		4D7B5CBC1ACD335E0060D4B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B5CBB1ACD335E0060D4B4 /* ViewController.swift */; };
 		4D7B5CBF1ACD335E0060D4B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D7B5CBD1ACD335E0060D4B4 /* Main.storyboard */; };
@@ -166,6 +168,8 @@
 		4D2BEA781D8DA3F3003870CC /* Runes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Runes.framework; path = Carthage/Build/iOS/Runes.framework; sourceTree = SOURCE_ROOT; };
 		4D2BEA7C1D8DA404003870CC /* Runes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Runes.framework; path = Carthage/Build/watchOS/Runes.framework; sourceTree = SOURCE_ROOT; };
 		4D2BEA7E1D8DA40F003870CC /* Runes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Runes.framework; path = Carthage/Build/tvOS/Runes.framework; sourceTree = SOURCE_ROOT; };
+		4D2BEA801D8DA566003870CC /* tasks_rootkey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tasks_rootkey.json; sourceTree = "<group>"; };
+		4D2BEA811D8DA566003870CC /* user_rootkey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user_rootkey.json; sourceTree = "<group>"; };
 		4D7B5CB41ACD335E0060D4B4 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D7B5CB81ACD335E0060D4B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D7B5CB91ACD335E0060D4B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -356,6 +360,8 @@
 				4D7B5D481ACD3DE00060D4B4 /* user.json */,
 				4D7B5D4D1ACD47B90060D4B4 /* tasks_invalid.json */,
 				4D7B5D4E1ACD47B90060D4B4 /* user_invalid.json */,
+				4D2BEA801D8DA566003870CC /* tasks_rootkey.json */,
+				4D2BEA811D8DA566003870CC /* user_rootkey.json */,
 				4D7B5CEF1ACD336F0060D4B4 /* Supporting Files */,
 			);
 			path = ArgonautTests;
@@ -682,10 +688,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D2BEA831D8DA566003870CC /* user_rootkey.json in Resources */,
 				4D7B5D4A1ACD3DE00060D4B4 /* user.json in Resources */,
 				4D7B5D4F1ACD47B90060D4B4 /* tasks_invalid.json in Resources */,
 				4D7B5D501ACD47B90060D4B4 /* user_invalid.json in Resources */,
 				4D7B5D491ACD3DE00060D4B4 /* tasks.json in Resources */,
+				4D2BEA821D8DA566003870CC /* tasks_rootkey.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1088,7 +1096,7 @@
 				PRODUCT_NAME = Argonaut;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.1;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1117,7 +1125,7 @@
 				PRODUCT_NAME = Argonaut;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.1;
 				VERSIONING_SYSTEM = "apple-generic";
