@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/aschuch/Argonaut.svg)](https://travis-ci.org/aschuch/Argonaut)
 ![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)
-![Swift 2.3](https://img.shields.io/badge/Swift-2.3-orange.svg)
+![Swift 3.0](https://img.shields.io/badge/Swift-3.0-orange.svg)
 ![Platform](https://img.shields.io/badge/platform-iOS%20%7C%20watchOS%20%7C%20tvOS-lightgrey.svg)
 
 A collection of (reactive) JSON parsing helpers for the [Argo](https://github.com/thoughtbot/Argo) JSON parser.
@@ -16,8 +16,8 @@ A collection of (reactive) JSON parsing helpers for the [Argo](https://github.co
 Map JSON responses to instances of your model objects. The model object needs to conform to Argo’s `Decodable` protocol.
 
 ```swift
-// Create models from NSData
-let responseData = // ... some JSON NSData, e.g. from a network response
+// Create models from Data
+let responseData = // ... some JSON Data, e.g. from a network response
 let user: User? = decodeData(responseData)
 let userDecoded: Decoded<User>? = decodeData(responseData)
 ```
@@ -25,8 +25,8 @@ let userDecoded: Decoded<User>? = decodeData(responseData)
 Arrays of JSON objects are mapped to an array of model instances.
 
 ```swift
-// Create array of models from NSData
-let responseData = // ... some JSON NSData, e.g. from a network response
+// Create array of models from Data
+let responseData = // ... some JSON Data, e.g. from a network response
 let tasks: [Task]? = decodeData(responseData)
 let tasksDecoded: Decoded<[Task]>? = decodeData(responseData)
 ```
@@ -37,13 +37,13 @@ Argonaut also supports JSON mapping for ReactiveCocoa 4.0 (`Signal and SignalPro
 
 ```swift
 // Create models from JSON dictionary
-let jsonSignalProducer: SignalProducer<AnyObject, NSError> = // ...
+let jsonSignalProducer: SignalProducer<Any, NSError> = // ...
 jsonSignalProducer.mapToType(User).startWithNext { [weak self] user in
     // use the User model
 }
 
 // Create array of models from array of JSON dictionaries
-let jsonSignalProducer: SignalProducer<AnyObject, NSError> = // ...
+let jsonSignalProducer: SignalProducer<Any, NSError> = // ...
 jsonSignalProducer.mapToTypeArray(Task). startWithNext { [weak self] tasks in
     // use the array of Task models
 }
