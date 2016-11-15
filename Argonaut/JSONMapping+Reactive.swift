@@ -1,5 +1,5 @@
 //
-//  JSONMapping+ReactiveCocoa.swift
+//  JSONMapping+Reactive.swift
 //  Example
 //
 //  Created by Alexander Schuch on 03/04/15.

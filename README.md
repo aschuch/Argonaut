@@ -55,9 +55,9 @@ Current Swift compatibility breakdown:
 
 | Swift Version | Framework Version |
 | ------------- | ----------------- |
-| 3.0	        | master          	|
-| 2.3	        | 3.x          		|
-| 2.2           | 2.x          		|
+| 3.0           | 4.x               |
+| 2.3           | 3.x               |
+| 2.2           | 2.x               |
 
 [all releases]: https://github.com/aschuch/Argonaut/releases
 

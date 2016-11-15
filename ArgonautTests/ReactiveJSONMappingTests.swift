@@ -70,7 +70,7 @@ class ReactiveJSONMappingTests: XCTestCase {
         let (signal, sink) = Signal<Any, NSError>.pipe()
         
         signal.mapToType(User.self).observeFailed { error = $0 }
-        sink.sendFailed(sentError)
+        sink.send(error: sentError)
         
         XCTAssertNotNil(error, "error should not be nil")
         XCTAssertEqual(error?.nsError, sentError, "the sent error should be wrapped in an .Underlying error")

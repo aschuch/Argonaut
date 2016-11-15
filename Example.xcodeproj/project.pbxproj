@@ -33,7 +33,7 @@
 		4D7B5CE31ACD336F0060D4B4 /* Argonaut.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D7B5CE21ACD336F0060D4B4 /* Argonaut.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D7B5CF21ACD336F0060D4B4 /* JSONMappingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B5CF11ACD336F0060D4B4 /* JSONMappingTests.swift */; };
 		4D7B5D051ACD33B90060D4B4 /* JSONMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B5D001ACD33B90060D4B4 /* JSONMapping.swift */; };
-		4D7B5D061ACD33B90060D4B4 /* JSONMapping+ReactiveCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B5D011ACD33B90060D4B4 /* JSONMapping+ReactiveCocoa.swift */; };
+		4D7B5D061ACD33B90060D4B4 /* JSONMapping+Reactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B5D011ACD33B90060D4B4 /* JSONMapping+Reactive.swift */; };
 		4D7B5D421ACD3A230060D4B4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B5D411ACD3A230060D4B4 /* User.swift */; };
 		4D7B5D491ACD3DE00060D4B4 /* tasks.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D7B5D471ACD3DE00060D4B4 /* tasks.json */; };
 		4D7B5D4A1ACD3DE00060D4B4 /* user.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D7B5D481ACD3DE00060D4B4 /* user.json */; };
@@ -45,8 +45,8 @@
 		4D81D4EA1C4171AC009A66A7 /* Argonaut.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D7B5CE21ACD336F0060D4B4 /* Argonaut.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D81D4EB1C4171AF009A66A7 /* Argonaut.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D7B5CE21ACD336F0060D4B4 /* Argonaut.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D81D4EC1C4171B2009A66A7 /* JSONMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B5D001ACD33B90060D4B4 /* JSONMapping.swift */; };
-		4D81D4EE1C4171B6009A66A7 /* JSONMapping+ReactiveCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B5D011ACD33B90060D4B4 /* JSONMapping+ReactiveCocoa.swift */; };
-		4D81D4EF1C4171B6009A66A7 /* JSONMapping+ReactiveCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B5D011ACD33B90060D4B4 /* JSONMapping+ReactiveCocoa.swift */; };
+		4D81D4EE1C4171B6009A66A7 /* JSONMapping+Reactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B5D011ACD33B90060D4B4 /* JSONMapping+Reactive.swift */; };
+		4D81D4EF1C4171B6009A66A7 /* JSONMapping+Reactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B5D011ACD33B90060D4B4 /* JSONMapping+Reactive.swift */; };
 		4D81D5391C417BA8009A66A7 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D81D5371C417BA8009A66A7 /* Interface.storyboard */; };
 		4D81D53B1C417BA8009A66A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D81D53A1C417BA8009A66A7 /* Assets.xcassets */; };
 		4D81D5421C417BA9009A66A7 /* ExampleWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4D81D5411C417BA9009A66A7 /* ExampleWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -67,6 +67,10 @@
 		4D81D5BB1C41A06E009A66A7 /* Argo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D81D5AA1C41A023009A66A7 /* Argo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4D81D5BE1C41A06E009A66A7 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D81D5AC1C41A023009A66A7 /* Result.framework */; };
 		4D81D5BF1C41A06E009A66A7 /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D81D5AC1C41A023009A66A7 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4D898E701DDB92CB00592DBC /* Runes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D2BEA781D8DA3F3003870CC /* Runes.framework */; };
+		4D898E711DDB92CB00592DBC /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D2BEA631D8DA175003870CC /* ReactiveSwift.framework */; };
+		4D898E721DDB92CB00592DBC /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D81D5961C41A003009A66A7 /* Argo.framework */; };
+		4D898E731DDB92CB00592DBC /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D81D5981C41A003009A66A7 /* Result.framework */; };
 		4D906FA61ACEF29700ECD5F2 /* Argonaut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7B5CDE1ACD336F0060D4B4 /* Argonaut.framework */; };
 /* End PBXBuildFile section */
 
@@ -184,7 +188,7 @@
 		4D7B5CF01ACD336F0060D4B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D7B5CF11ACD336F0060D4B4 /* JSONMappingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONMappingTests.swift; sourceTree = "<group>"; };
 		4D7B5D001ACD33B90060D4B4 /* JSONMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONMapping.swift; sourceTree = "<group>"; };
-		4D7B5D011ACD33B90060D4B4 /* JSONMapping+ReactiveCocoa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSONMapping+ReactiveCocoa.swift"; sourceTree = "<group>"; };
+		4D7B5D011ACD33B90060D4B4 /* JSONMapping+Reactive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSONMapping+Reactive.swift"; sourceTree = "<group>"; };
 		4D7B5D411ACD3A230060D4B4 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4D7B5D471ACD3DE00060D4B4 /* tasks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tasks.json; sourceTree = "<group>"; };
 		4D7B5D481ACD3DE00060D4B4 /* user.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user.json; sourceTree = "<group>"; };
@@ -241,6 +245,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D898E701DDB92CB00592DBC /* Runes.framework in Frameworks */,
+				4D898E711DDB92CB00592DBC /* ReactiveSwift.framework in Frameworks */,
+				4D898E721DDB92CB00592DBC /* Argo.framework in Frameworks */,
+				4D898E731DDB92CB00592DBC /* Result.framework in Frameworks */,
 				4D906FA61ACEF29700ECD5F2 /* Argonaut.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,7 +341,7 @@
 			isa = PBXGroup;
 			children = (
 				4D7B5D001ACD33B90060D4B4 /* JSONMapping.swift */,
-				4D7B5D011ACD33B90060D4B4 /* JSONMapping+ReactiveCocoa.swift */,
+				4D7B5D011ACD33B90060D4B4 /* JSONMapping+Reactive.swift */,
 				4D7B5CE21ACD336F0060D4B4 /* Argonaut.h */,
 				4D7B5CE01ACD336F0060D4B4 /* Supporting Files */,
 			);
@@ -745,7 +753,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D7B5D051ACD33B90060D4B4 /* JSONMapping.swift in Sources */,
-				4D7B5D061ACD33B90060D4B4 /* JSONMapping+ReactiveCocoa.swift in Sources */,
+				4D7B5D061ACD33B90060D4B4 /* JSONMapping+Reactive.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -766,7 +774,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D81D4EC1C4171B2009A66A7 /* JSONMapping.swift in Sources */,
-				4D81D4EE1C4171B6009A66A7 /* JSONMapping+ReactiveCocoa.swift in Sources */,
+				4D81D4EE1C4171B6009A66A7 /* JSONMapping+Reactive.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -775,7 +783,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D81D5781C417D8D009A66A7 /* JSONMapping.swift in Sources */,
-				4D81D4EF1C4171B6009A66A7 /* JSONMapping+ReactiveCocoa.swift in Sources */,
+				4D81D4EF1C4171B6009A66A7 /* JSONMapping+Reactive.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -951,7 +959,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.aschuch.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.0.1;
 			};
 			name = Debug;
 		};
@@ -971,7 +979,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.aschuch.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.0.1;
 			};
 			name = Release;
 		};
@@ -1002,7 +1010,7 @@
 				PRODUCT_NAME = Argonaut;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.0.1;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1030,7 +1038,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.aschuch.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Argonaut;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.0.1;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1052,7 +1060,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.aschuch.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.0.1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Example.app/Example";
 			};
 			name = Debug;
@@ -1069,7 +1077,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.aschuch.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.0.1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Example.app/Example";
 			};
 			name = Release;
@@ -1096,7 +1104,7 @@
 				PRODUCT_NAME = Argonaut;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.0.1;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.1;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1125,7 +1133,7 @@
 				PRODUCT_NAME = Argonaut;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.0.1;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.1;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1156,7 +1164,7 @@
 				PRODUCT_NAME = Argonaut;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.0.1;
 				TARGETED_DEVICE_FAMILY = 4;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1186,7 +1194,7 @@
 				PRODUCT_NAME = Argonaut;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.0.1;
 				TARGETED_DEVICE_FAMILY = 4;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1210,7 +1218,7 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.0.1;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -1231,7 +1239,7 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.0.1;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
