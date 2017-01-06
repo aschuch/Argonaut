@@ -1,2 +1,2 @@
-github "ReactiveCocoa/ReactiveSwift" "1.0.0-alpha.3"
+github "ReactiveCocoa/ReactiveSwift" ~> 1.0
 github "thoughtbot/Argo" ~> 4.1
